@@ -1,17 +1,19 @@
 .App {
   text-align: center;
+  height: 100vh;
+  background-color: #282c34;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 30vmin;
   pointer-events: none;
 }
 
 
 
-.App-header {
+.App-header, main {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,9 +21,40 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.App-header {
+  padding-top: 70px;
+}
+
 
 .App-link {
   color: #61dafb;
 }
 
+.classic .MuiSelect-selectMenu, .classic .MuiSelect-selectMenu {min-width: 200px !important;}
 
+.MuiInput-underline:hover:not(.Mui-disabled):before {
+    border-bottom: 2px solid #fff;
+}
+.MuiInput-underline:before {
+  border-bottom: 1px solid #fff !important;
+}
+.MuiSelect-icon {
+  color: #fff !important;
+}
+p.big {
+  font-size: 2.2rem;
+  margin: 1.2rem 0 0.3rem;
+  font-weight: bold;
+}
+
+.abilities {
+  max-width: 400px;
+  margin: 0 auto;
+  color: #fff;
+}
+.abilities th {color: #fff;font-size: 1rem;}
+ 
+.abilities .MuiFormControl-root {
+  width: 100%;
+  min-width: 62px;
+}

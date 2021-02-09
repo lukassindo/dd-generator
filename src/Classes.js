@@ -1,20 +1,21 @@
 import React from 'react';
 import 'fontsource-roboto';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 
-
-class Species extends React.Component {
+class Classes extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            species : ['Human', 'Elf', 'Dwarf','Halfling','Tiefling','Dragonborn', 'Gnome','Half-Orc','Half-Elf'],
+            classes : ['Barbarian','Bard','Cleric','Druid','Fighter','Monk','Paladin','Ranger','Rogue','Sorcerer','Warlock','Wizard'],
             picked: '',
-            
         }
 
         this.handleData = this.handleData.bind(this);
@@ -22,15 +23,14 @@ class Species extends React.Component {
     
 
     handleData(event) {
-        this.props.handleData('species',event.target.value)
+        this.props.handleData('profession',event.target.value)
         this.setState({picked: event.target.value});
-        this.props.buttonState('clicked')
-
+        this.props.buttonState('clicked');
     }
 
 
     render() {
-        if (this.props.currentStep !== 1) { // Prop: The current step
+        if (this.props.currentStep !== 2) { 
             return null
         }
 
@@ -38,18 +38,17 @@ class Species extends React.Component {
             
             <>
              <FormControl className="classic">
-                 <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick Your Species</InputLabel>
+                 <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick Your Class </InputLabel>
                 <Select 
                     onChange={this.handleData}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value= {this.state.picked}
-                    placeholer="human"
                     style={{color: "#fff"}}
                 >
                       
-                    {this.state.species.map((species,index) => (
-                        <MenuItem  key={index} value={species}>{species}</MenuItem>
+                    {this.state.classes.map((prof,index) => (
+                        <MenuItem  key={index} value={prof}>{prof}</MenuItem>
                     ))}
                 </Select>
             </FormControl>
@@ -61,4 +60,4 @@ class Species extends React.Component {
 
 }
 
-export default Species;
+export default Classes;
