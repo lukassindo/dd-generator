@@ -12,7 +12,7 @@ class Species extends React.Component {
         super(props);
 
         this.state = {
-            species : ['Human', 'Elf', 'Dwarf','Halfling','Tiefling','Dragonborn', 'Gnome','Half-Orc','Half-Elf'],
+            species : ['Human', 'High Elf', 'Forest Elf', 'Drow - Dark Elf', 'Mountain Dwarf', 'Hill Dwarf','Halfling - Lightfoot', 'Halfling - Stout','Tiefling','Dragonborn', 'Forest Gnome', 'Rock Gnome', 'Half-Orc','Half-Elf'],
             picked: '',
             
         }

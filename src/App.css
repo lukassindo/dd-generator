@@ -9,7 +9,16 @@
   pointer-events: none;
 }
 
-
+#values .MuiSelect-nativeInput { 
+    height: 100%;
+    color: #fff;
+    background: transparent;
+    border: none;
+    opacity: 1;
+}
+#values .MuiSelect-select.MuiSelect-select {
+  font-size: 0;
+}
 
 .App-header, main {
   background-color: #282c34;
@@ -24,7 +33,11 @@
 .App-header {
   padding-top: 70px;
 }
-
+button.next, button.previous{
+  margin: 40px 20px;
+  min-width: 120px;
+}
+.option {min-height: 30px !important;}
 
 .App-link {
   color: #61dafb;

@@ -2,8 +2,6 @@ import React from 'react';
 import 'fontsource-roboto';
 import Button from '@material-ui/core/Button';
 import serviceRoll from './services/roll';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -11,8 +9,11 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Fade from '@material-ui/core/Fade';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
+import AbilityCells from './AbilityCells';
+import Bonus from './Bonus';
+
+import DataContext from './contexts/DataContext';
+
 
 
 class Features extends React.Component {
@@ -20,39 +21,50 @@ class Features extends React.Component {
         super(props);
 
         this.state = {
+            abilities: ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma'],
             features:[],
             rolled: false,
             featuresUse: [],
+            defaultPicked: false,
+            numbersToShow: [],
         }
 
-        
         this.rollMethod = this.rollMethod.bind(this);
         this.useDefault = this.useDefault.bind(this);
+        this.confirmMethod = this.confirmMethod.bind(this);
     }
 
     rollMethod() {
         const features = serviceRoll.roll();
-        this.setState({features, featuresUse: features, rolled: true})
+        let pickable = [...features]
+        pickable.unshift(' ');
+        this.setState({numbersToShow: features, featuresUse: pickable, rolled: true}, this.context.update({rolled: pickable}) );
     }
+
     useDefault() {
         const defaultNumbers = [15, 14, 13, 12, 10, 8];
-        this.setState({features: defaultNumbers , rolled: true})
+        let pickable = [...defaultNumbers];
+        pickable.unshift(' ');
+        this.setState({numbersToShow: defaultNumbers, features: pickable , rolled: true, defaultPicked: true});
     }
 
+    confirmMethod() {
+        console.log(this.context.actualState);
+    }
 
+    
     render() {
-
         if (this.props.currentStep !== 3) { 
             return null
         }
-        console.log(this.state.features);
-
+       
         const rollsResults = (
             <>
-                <h4>Young {this.props.profession}, Please assign these numbers for Your abilities: {this.state.features.toString()}</h4>
+                <h4>Young {this.props.profession}, Please assign these numbers for Your abilities: {this.state.numbersToShow.toString()}</h4>
+               
                 <Fade in={true}>
                 <TableContainer >
-                    <Table className="abilities">
+                    <Table className="abilities" id="abilities"> 
                         <TableHead>
                             <TableRow> 
                                 <TableCell>Strength</TableCell>
@@ -64,102 +76,28 @@ class Features extends React.Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            <TableRow key="numbers">
-                                <TableCell>
-                                    <FormControl >
-                                        <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Value</InputLabel>
-                                        <Select 
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            style={{color: "#fff"}}
-                                        >
-                                            
-                                            {this.state.featuresUse.map((feature,index) => (
-                                                <MenuItem key={index} value={feature}>{feature}</MenuItem>
-                                            ))}
-                                        </Select> 
-                                    </FormControl>
-                                </TableCell>
-                                <TableCell>
-                                    <FormControl >
-                                        <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Value</InputLabel>
-                                        <Select 
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            style={{color: "#fff"}}
-                                        >
-                                            
-                                            {this.state.featuresUse.map((feature,index) => (
-                                                <MenuItem key={index} value={feature}>{feature}</MenuItem>
-                                            ))}
-                                        </Select> 
-                                    </FormControl>        
-                                </TableCell>
-                                <TableCell>
-                                    <FormControl >
-                                        <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Value</InputLabel>
-                                        <Select 
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            style={{color: "#fff"}}
-                                        >
-                                            
-                                            {this.state.featuresUse.map((feature,index) => (
-                                                <MenuItem key={index} value={feature}>{feature}</MenuItem>
-                                            ))}
-                                        </Select> 
-                                    </FormControl>
-                                </TableCell>
-                                <TableCell>
-                                    <FormControl >
-                                        <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Value</InputLabel>
-                                        <Select 
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            style={{color: "#fff"}}
-                                        >
-                                            
-                                            {this.state.featuresUse.map((feature,index) => (
-                                                <MenuItem key={index} value={feature}>{feature}</MenuItem>
-                                            ))}
-                                        </Select> 
-                                    </FormControl>                
-                                </TableCell>
-                                <TableCell>
-                                    <FormControl >
-                                        <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Value</InputLabel>
-                                        <Select 
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            style={{color: "#fff"}}
-                                        >
-                                            
-                                            {this.state.featuresUse.map((feature,index) => (
-                                                <MenuItem key={index} value={feature}>{feature}</MenuItem>
-                                            ))}
-                                        </Select> 
-                                    </FormControl>                
-                                </TableCell>
-                                <TableCell>
-                                    <FormControl >
-                                        <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Value</InputLabel>
-                                        <Select 
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            style={{color: "#fff"}}
-                                        >
-                                            
-                                            {this.state.featuresUse.map((feature,index) => (
-                                                <MenuItem key={index} value={feature}>{feature}</MenuItem>
-                                            ))}
-                                        </Select> 
-                                    </FormControl>                
-                                </TableCell>
+                            
+                            <TableRow key="numbers" id="values">
+                                <AbilityCells  abilities={this.state.abilities} default={this.state.features} features={this.state.featuresUse} defaultPicked={this.state.defaultPicked}/>  
+                            </TableRow>
+                            <TableRow>
+                                <Bonus species ={this.props.species}/> 
                             </TableRow>
                         </TableBody>
                     </Table>
                 </TableContainer>
-                </Fade>
+                
+                </Fade> 
+                 <Button 
+                    onClick={this.confirmMethod} 
+                    disabled={this.context.notConfirmed}
+                    variant="contained" 
+                    color="secondary"  
+                    style={{marginTop: "26px"}}
+                    >
+                        Confirm - One way ticket!
+                    </Button>                   
+                
             </>
         )
         
@@ -195,5 +133,5 @@ class Features extends React.Component {
     }
     
 }
-
+Features.contextType=DataContext;
 export default Features;

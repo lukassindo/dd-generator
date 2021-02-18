@@ -6,9 +6,7 @@ import Species from './Species';
 import Classes from './Classes';
 import Features from './Features';
 import Button from '@material-ui/core/Button';
-import FormControl from '@material-ui/core/FormControl';
-import MenuItem from '@material-ui/core/MenuItem';
-
+import DataProvider from './contexts/DataProvider';
 
 class App extends React.Component  {
   constructor(props) {
@@ -66,7 +64,7 @@ class App extends React.Component  {
     console.log(currentStep)
     console.log(this.state.profession)
     const previousButton = (
-      <Button style={{color:"#fff", borderColor: "#fff"}}
+      <Button className="previous" style={{color:"#fff", borderColor: "#fff"}}
         size="large"
         variant="outlined"
         
@@ -76,7 +74,7 @@ class App extends React.Component  {
     )
 
     const nextButton = (
-      <Button style={{color:"#fff", borderColor: "#fff"}}
+      <Button className="next" style={{color:"#fff", borderColor: "#fff"}}
       variant="outlined"
       size="large"
       onClick={this._next}
@@ -88,21 +86,24 @@ class App extends React.Component  {
 
     
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1>Your Character Generator</h1>
-        </header>
-        <main>
-        {}
-          <Species  buttonState={this.handleButton} currentStep={this.state.currentStep} handleData = {this.handleUserData} />
-          <Classes buttonState={this.handleButton} currentStep={this.state.currentStep} handleData = {this.handleUserData} />
-          <Features profession={this.state.profession} currentStep={this.state.currentStep}/>
-          {currentStep !== 1 && previousButton}
-          {currentStep < 3 && nextButton } 
-
-        </main>
-      </div>
+      <DataProvider>
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h1>Your Character Generator</h1>
+          </header>
+          <main>
+          {}
+            <Species  buttonState={this.handleButton} currentStep={this.state.currentStep} handleData = {this.handleUserData} />
+            <Classes buttonState={this.handleButton} currentStep={this.state.currentStep} handleData = {this.handleUserData} />
+            <Features species={this.state.species} profession={this.state.profession} currentStep={this.state.currentStep}/>
+            <div className="buttons">
+              {currentStep !== 1 && previousButton}
+              {currentStep < 3 && nextButton } 
+            </div>
+          </main>
+        </div>
+      </DataProvider>
     );
   }
 }
