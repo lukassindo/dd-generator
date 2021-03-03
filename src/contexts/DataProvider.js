@@ -23,11 +23,116 @@ class DataProvider extends React.Component {
                 'Half-Elf': ['',2,'','','',2],
                 'Half-Orc': [2, '',1, '','',''],
             },
-           default : ['',15, 14, 13, 12, 10, 8],
-           rolled: this.props.rolled,
+           defaultStatic : ['empty',15, 14, 13, 12, 10, 8],
+           default : ['empty',15, 14, 13, 12, 10, 8],
+           rolled: [],
+           defaultRolled: [],
            actualState: ['','','','','',''],
 		   notConfirmed: true,
+           finalValues: [],
+           final: false,
            update: this.updateState,
+           species_char : {
+               'Human': {
+                   gender: ['female','male'],
+                   alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
+                   speed: '9m',
+                   basic_languages: 'Common',
+                   languages: ['Elvish','Dwarvish','Giant','Gnomish','Goblin','Halfling','Orc','Draconic', 'Infernal'],
+               },
+               'Forest elf': {
+                    gender: ['female','male'],
+                    alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral'],
+                    speed: '10,5m',
+                    basic_languages: 'Elvish & Common',
+                    proficiency: ['Darkvision - 18m','Fey Ancestry', 'Trance','Mask of the Wild', 'Martial Arts']
+                },
+                'High elf': {
+                    gender: ['female','male'],
+                    alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral'],
+                    speed: '9m',
+                    basic_languages: 'Elvish & Common',
+                    proficiency: ['Darkvision - 18m','Fey Ancestry', 'Trance','Magic Trick', 'Martial Arts'],
+                    languages: ['Elvish','Dwarvish','Giant','Gnomish','Goblin','Halfling','Orc'],
+                },
+                'Drow - Dark Elf': {
+                    gender: ['female','male'],
+                    alignment: ['Lawful evil','Neutral evil','Chaotic evil'],
+                    speed: '9m',
+                    basic_languages: 'Elvish & Common',
+                    proficiency: ['Superior Darkvision - 36m','Fey Ancestry', 'Trance','Sunlight Sensitivity','Drow Magic', 'Drow Weapon Training']
+                },
+                'Mountain Dwarf': {
+                    gender: ['female','male'],
+                    alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
+                    speed: '7,5m',
+                    basic_languages: 'Dwarvish & Common',
+                    proficiency: ['Darkvision - 18m','Dwarven Resilience', 'Dwarven Combat Training','Tool Proficiency','Stonecunning', 'Dwarven Armor Training']
+                },
+                'Hill Dwarf': {
+                    gender: ['female','male'],
+                    alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
+                    speed: '7,5m',
+                    basic_languages: 'Dwarvish & Common',
+                    proficiency: ['Darkvision - 18m','Dwarven Resilience', 'Dwarven Combat Training','Tool Proficiency','Stonecunning', 'Dwarven Toughness']
+                },
+                'Halfling - Lightfoot': {
+                    gender: ['female','male'],
+                    alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
+                    speed: '7,5m',
+                    basic_languages: 'Halfling & Common',
+                    proficiency: ['Lucky', 'Brave','Halfling Nimbleness','Naturally Stealthy']
+                },
+                'Halfling - Stout': {
+                    gender: ['female','male'],
+                    alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
+                    speed: '7,5m',
+                    basic_languages: 'Halfling & Common',
+                    proficiency: ['Lucky', 'Brave','Halfling Nimbleness','Stout Resilience']
+                },
+                'Tiefling': {
+                    gender: ['female','male'],
+                    alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
+                    speed: '9m',
+                    basic_languages: 'Infernal & Common',
+                    proficiency: ['Darkvision - 18m', 'Hellish Resistance','Infernal Legacy','Stout Resilience']
+                },
+                'Dragonborn': {
+                    gender: ['female','male'],
+                    alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
+                    speed: '9m',
+                    basic_languages: 'Draconic & Common',
+                    proficiency: ['Draconic Ancestry', 'Breath Weapon','Damage Resistance']
+                },
+                'Forest Gnome': {
+                    gender: ['female','male'],
+                    alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
+                    speed: '7,5m',
+                    basic_languages: 'Gnomish & Common',
+                    proficiency: ['Darkvision - 18m', 'Gnome Cunning','Natural Illusionist','Speak with Small Beasts']
+                },
+                'Rock Gnome': {
+                    gender: ['female','male'],
+                    alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
+                    speed: '7,5m',
+                    basic_languages: 'Gnomish & Common',
+                    proficiency: ['Darkvision - 18m', 'Gnome Cunning','Artificer’s Lore','Tinker']
+                },
+                'Half-Orc': {
+                    gender: ['female','male'],
+                    alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
+                    speed: '9m',
+                    basic_languages: 'Orc & Common',
+                    proficiency: ['Darkvision - 18m', 'Menacing','Relentless Endurance','Savage Attacks']
+                },
+                'Half-Elf': {
+                    gender: ['female','male'],
+                    alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
+                    speed: '9m',
+                    basic_languages: 'Orc & Common',
+                    proficiency: ['Darkvision - 18m', 'Fey Ancestry','Skill Versatility','Savage Attacks']
+                },
+           }
          
 		}
 	}

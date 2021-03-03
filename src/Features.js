@@ -11,8 +11,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Fade from '@material-ui/core/Fade';
 import AbilityCells from './AbilityCells';
 import Bonus from './Bonus';
-
+import FinalValues from './FinalValues';
 import DataContext from './contexts/DataContext';
+
 
 
 
@@ -27,6 +28,7 @@ class Features extends React.Component {
             featuresUse: [],
             defaultPicked: false,
             numbersToShow: [],
+            final: false,
         }
 
         this.rollMethod = this.rollMethod.bind(this);
@@ -37,26 +39,31 @@ class Features extends React.Component {
     rollMethod() {
         const features = serviceRoll.roll();
         let pickable = [...features]
-        pickable.unshift(' ');
-        this.setState({numbersToShow: features, featuresUse: pickable, rolled: true}, this.context.update({rolled: pickable}) );
+        pickable.unshift('empty');
+        this.setState({numbersToShow: features, featuresUse: pickable, rolled: true}, this.context.update({rolled: pickable, defaultRolled: pickable}) );
     }
 
     useDefault() {
         const defaultNumbers = [15, 14, 13, 12, 10, 8];
         let pickable = [...defaultNumbers];
-        pickable.unshift(' ');
+        pickable.unshift('empty');
         this.setState({numbersToShow: defaultNumbers, features: pickable , rolled: true, defaultPicked: true});
     }
 
     confirmMethod() {
-        console.log(this.context.actualState);
+        let state = [...this.context.actualState]
+        const bonus =  [...this.context.speciesBonus[this.props.species]];
+        for(let i=0; i < state.length; i++) {
+            if(bonus[i] === parseInt(bonus[i], 10)) state[i] += bonus[i]
+        }
+        this.props.buttonState('clicked');
+        this.setState({final: true}, this.context.update({finalValues: state, final: true}) );
     }
 
     
     render() {
-        if (this.props.currentStep !== 3) { 
-            return null
-        }
+        
+   
        
         const rollsResults = (
             <>
@@ -77,7 +84,7 @@ class Features extends React.Component {
                         </TableHead>
                         <TableBody>
                             
-                            <TableRow key="numbers" id="values">
+                            <TableRow id="values">
                                 <AbilityCells  abilities={this.state.abilities} default={this.state.features} features={this.state.featuresUse} defaultPicked={this.state.defaultPicked}/>  
                             </TableRow>
                             <TableRow>
@@ -125,11 +132,15 @@ class Features extends React.Component {
             </>
         )
 
-        return (
-            <>
-                {this.state.rolled ? rollsResults : rolling}
-            </>
-        )
+        
+        if (this.props.currentStep !== 3) { 
+            return null
+        } else if(!this.state.final) {
+            return this.state.rolled ? rollsResults : rolling      
+        } else {
+            return (<FinalValues abilities = {this.state.abilities} species={this.props.species} profession={this.props.profession}/>)
+        }             
+       
     }
     
 }
