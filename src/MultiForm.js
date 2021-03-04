@@ -5,6 +5,7 @@ import 'fontsource-roboto';
 import Species from './Species';
 import Classes from './Classes';
 import Features from './Features';
+import SpeciesChar from './SpeciesChar';
 import Button from '@material-ui/core/Button';
 import DataContext from './contexts/DataContext';
 
@@ -58,17 +59,17 @@ class MultiForm extends React.Component  {
 
  checkButtons() {
   if(this.state.currentStep === 2 && this.state.profession !== '') this.setState({button: false})
-  if(this.context.final) this.setState({button:false})
+  if(this.context.final) this.setState({button:false});
+  
  }
 
   render () {
     let currentStep = this.state.currentStep;
-    console.log(currentStep)
     const previousButton = (
       <Button className="previous" style={{color:"#fff", borderColor: "#fff"}}
         size="large"
         variant="outlined"
-        disabled={this.context.final}
+        disabled={this.context.final && currentStep === 3}
         onClick={this._prev}>
             Previous
       </Button>
@@ -98,6 +99,7 @@ class MultiForm extends React.Component  {
             <Species  buttonState={this.handleButton} currentStep={this.state.currentStep} handleData = {this.handleUserData} />
             <Classes buttonState={this.handleButton} currentStep={this.state.currentStep} handleData = {this.handleUserData} />
             <Features buttonState={this.handleButton} species={this.state.species} profession={this.state.profession} currentStep={this.state.currentStep}/>
+            <SpeciesChar buttonState={this.handleButton} species={this.state.species} currentStep={this.state.currentStep}/>
             <div className="buttons">
               {currentStep !== 1 && previousButton}
               {currentStep < 4 && nextButton } 

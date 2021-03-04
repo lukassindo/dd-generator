@@ -71,3 +71,20 @@ p.big {
   width: 100%;
   min-width: 62px;
 }
+.charData .MuiFormLabel-root, .charData .MuiFormLabel-root.Mui-focused{color: #fff;}
+
+form.charData {
+  display: flex;
+  flex-direction: column;
+}
+form.charData > div {
+  margin: 11px;
+}
+form.charData input {
+  color: #fff;
+}
+#finalValues td {
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+}
