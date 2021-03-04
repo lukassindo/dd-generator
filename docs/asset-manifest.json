@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/dd-generator/static/css/main.41694433.chunk.css",
-    "main.js": "/dd-generator/static/js/main.9d7f12fd.chunk.js",
-    "main.js.map": "/dd-generator/static/js/main.9d7f12fd.chunk.js.map",
-    "runtime-main.js": "/dd-generator/static/js/runtime-main.9d86fa8f.js",
-    "runtime-main.js.map": "/dd-generator/static/js/runtime-main.9d86fa8f.js.map",
+    "main.css": "/dd-generator/static/css/main.f4b63d12.chunk.css",
+    "main.js": "/dd-generator/static/js/main.12348014.chunk.js",
+    "main.js.map": "/dd-generator/static/js/main.12348014.chunk.js.map",
+    "runtime-main.js": "/dd-generator/static/js/runtime-main.70b60591.js",
+    "runtime-main.js.map": "/dd-generator/static/js/runtime-main.70b60591.js.map",
     "static/css/2.4b672740.chunk.css": "/dd-generator/static/css/2.4b672740.chunk.css",
-    "static/js/2.c457f0d0.chunk.js": "/dd-generator/static/js/2.c457f0d0.chunk.js",
-    "static/js/2.c457f0d0.chunk.js.map": "/dd-generator/static/js/2.c457f0d0.chunk.js.map",
-    "static/js/3.1bdf023a.chunk.js": "/dd-generator/static/js/3.1bdf023a.chunk.js",
-    "static/js/3.1bdf023a.chunk.js.map": "/dd-generator/static/js/3.1bdf023a.chunk.js.map",
+    "static/js/2.84ec0ad2.chunk.js": "/dd-generator/static/js/2.84ec0ad2.chunk.js",
+    "static/js/2.84ec0ad2.chunk.js.map": "/dd-generator/static/js/2.84ec0ad2.chunk.js.map",
+    "static/js/3.eafdfdf0.chunk.js": "/dd-generator/static/js/3.eafdfdf0.chunk.js",
+    "static/js/3.eafdfdf0.chunk.js.map": "/dd-generator/static/js/3.eafdfdf0.chunk.js.map",
     "index.html": "/dd-generator/index.html",
     "static/css/2.4b672740.chunk.css.map": "/dd-generator/static/css/2.4b672740.chunk.css.map",
-    "static/css/main.41694433.chunk.css.map": "/dd-generator/static/css/main.41694433.chunk.css.map",
-    "static/js/2.c457f0d0.chunk.js.LICENSE.txt": "/dd-generator/static/js/2.c457f0d0.chunk.js.LICENSE.txt",
+    "static/css/main.f4b63d12.chunk.css.map": "/dd-generator/static/css/main.f4b63d12.chunk.css.map",
+    "static/js/2.84ec0ad2.chunk.js.LICENSE.txt": "/dd-generator/static/js/2.84ec0ad2.chunk.js.LICENSE.txt",
     "static/media/dd.aa28a64d.png": "/dd-generator/static/media/dd.aa28a64d.png",
     "static/media/index.css": "/dd-generator/static/media/roboto-vietnamese-400-normal.52cebac0.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.9d86fa8f.js",
+    "static/js/runtime-main.70b60591.js",
     "static/css/2.4b672740.chunk.css",
-    "static/js/2.c457f0d0.chunk.js",
-    "static/css/main.41694433.chunk.css",
-    "static/js/main.9d7f12fd.chunk.js"
+    "static/js/2.84ec0ad2.chunk.js",
+    "static/css/main.f4b63d12.chunk.css",
+    "static/js/main.12348014.chunk.js"
   ]
 }

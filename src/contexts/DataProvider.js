@@ -155,7 +155,7 @@ class DataProvider extends React.Component {
 	}
     addPersonData(key, value) {
         let personData = {...this.state.person};
-        if (key == 'languages') {
+        if (key === 'languages') {
             let lang = personData.languages;
             lang.splice(0,1,value);
         } else {
