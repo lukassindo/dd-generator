@@ -10,11 +10,10 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 
 
 class Classes extends React.Component {
+    CLASSES = ['Barbarian','Bard','Cleric','Druid','Fighter','Monk','Paladin','Ranger','Rogue','Sorcerer','Warlock','Wizard'];
     constructor(props) {
         super(props);
-
         this.state = {
-            classes : ['Barbarian','Bard','Cleric','Druid','Fighter','Monk','Paladin','Ranger','Rogue','Sorcerer','Warlock','Wizard'],
             picked: '',
         }
 
@@ -47,7 +46,7 @@ class Classes extends React.Component {
                     style={{color: "#fff"}}
                 >
                       
-                    {this.state.classes.map((prof,index) => (
+                    {this.CLASSES.map((prof,index) => (
                         <MenuItem  key={index} value={prof}>{prof}</MenuItem>
                     ))}
                 </Select>

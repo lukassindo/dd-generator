@@ -17,7 +17,7 @@ constructor(props, context) {
         return item;
     })
     this.state = {
-        bonus, values
+       values,
     }
 
 

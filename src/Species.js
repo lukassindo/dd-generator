@@ -8,13 +8,12 @@ import InputLabel from '@material-ui/core/InputLabel';
 
 
 class Species extends React.Component {
+    SPECIES = ['Human', 'High Elf', 'Forest Elf', 'Drow - Dark Elf', 'Mountain Dwarf', 'Hill Dwarf','Halfling - Lightfoot', 'Halfling - Stout','Tiefling','Dragonborn', 'Forest Gnome', 'Rock Gnome', 'Half-Orc','Half-Elf'];
     constructor(props) {
         super(props);
 
         this.state = {
-            species : ['Human', 'High Elf', 'Forest Elf', 'Drow - Dark Elf', 'Mountain Dwarf', 'Hill Dwarf','Halfling - Lightfoot', 'Halfling - Stout','Tiefling','Dragonborn', 'Forest Gnome', 'Rock Gnome', 'Half-Orc','Half-Elf'],
             picked: '',
-            
         }
 
         this.handleData = this.handleData.bind(this);
@@ -48,7 +47,7 @@ class Species extends React.Component {
                     style={{color: "#fff"}}
                 >
                       
-                    {this.state.species.map((species,index) => (
+                    {this.SPECIES.map((species,index) => (
                         <MenuItem  key={index} value={species}>{species}</MenuItem>
                     ))}
                 </Select>

@@ -22,8 +22,8 @@ class MultiForm extends React.Component  {
     }
 
     this.handleUserData = this.handleUserData.bind(this);
-    this._next = this._next.bind(this);
-    this._prev = this._prev.bind(this);
+    this.next = this.next.bind(this);
+    this.prev = this.prev.bind(this);
     this.handleButton = this.handleButton.bind(this);
     this.checkButtons = this.checkButtons.bind(this);
   }
@@ -35,7 +35,7 @@ class MultiForm extends React.Component  {
    if(childData === "clicked") this.setState({button:false}) 
  }
 
- _prev() {
+ prev() {
     let currentStep = this.state.currentStep
     if(currentStep === 3) this.context.update({default: this.context.defaultStatic, rolled: this.context.defaultRolled, notConfirmed: true, actualState: ['','','','','','']})
  
@@ -47,7 +47,7 @@ class MultiForm extends React.Component  {
     
  }
 
- _next() {
+ next() {
     let currentStep = this.state.currentStep
     // If the current step is 1 or 2, then add one on "next" button click
     currentStep = currentStep >= 3 ? 4: currentStep + 1
@@ -70,7 +70,7 @@ class MultiForm extends React.Component  {
         size="large"
         variant="outlined"
         disabled={this.context.final && currentStep === 3}
-        onClick={this._prev}>
+        onClick={this.prev}>
             Previous
       </Button>
     )
@@ -79,7 +79,7 @@ class MultiForm extends React.Component  {
       <Button className="next" style={{color:"#fff", borderColor: "#fff"}}
       variant="outlined"
       size="large"
-      onClick={this._next}
+      onClick={this.next}
       disabled={this.state.button}
       >
         Next

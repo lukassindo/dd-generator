@@ -36,13 +36,13 @@ class AbilityCells extends React.Component {
             }
         }
         if(actualState[index] === parseInt(actualState[index], 10)) copy.push(actualState[index])
-        actualState[index] = data;
+            actualState[index] = data;
         if (actualState.every(value => value === parseInt(value, 10))) {
             if(this.props.defaultPicked) this.context.update({default: copy, notConfirmed: false, actualState});
-            this.context.update({rolled: copy, notConfirmed: false, actualState});
+                this.context.update({rolled: copy, notConfirmed: false, actualState});
         } else {
             if(this.props.defaultPicked) this.context.update({default: copy, notConfirmed: true, actualState});
-            this.context.update({rolled: copy, notConfirmed: true, actualState});
+                this.context.update({rolled: copy, notConfirmed: true, actualState});
         }
 
     }

@@ -12,9 +12,6 @@ class App extends React.Component  {
 
   }
 
- checkButtons() {
-  if(this.state.currentStep === 2 && this.state.profession !== '') this.setState({button: false})
- }
 
   render () {
 
