@@ -65,6 +65,7 @@ class MultiForm extends React.Component  {
 
   render () {
     let currentStep = this.state.currentStep;
+    console.log(currentStep);
     const previousButton = (
       <Button className="previous" style={{color:"#fff", borderColor: "#fff"}}
         size="large"
@@ -102,7 +103,7 @@ class MultiForm extends React.Component  {
             <SpeciesChar buttonState={this.handleButton} species={this.state.species} currentStep={this.state.currentStep}/>
             <div className="buttons">
               {currentStep !== 1 && previousButton}
-              {currentStep < 4 && nextButton } 
+              {currentStep < 5 && nextButton } 
             </div>
           </main>
         </div>

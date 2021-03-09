@@ -9,16 +9,26 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import LanguagesPick from './LanguagesPick';
+import TrickPick from './TrickPick';
+import ToolsPick from './ToolsPick';
+import Dragons from './Dragons';
+import Skills from './Skills';
 
 class SpeciesChar extends React.Component {
 
-    constructor(props) {
+    constructor(props, context) {
         super(props);
         this.handleData = this.handleData.bind(this);
+        this.state = context.person;
     }
 
 
-    
+    componentDidUpdate(prevState) {
+        console.log(prevState);
+    if (prevState.languages !== this.state.languages) {
+          console.log('changed');
+        }
+    }
 
     handleData() {
         this.props.buttonState('clicked')
@@ -27,6 +37,7 @@ class SpeciesChar extends React.Component {
 
 
     render() {
+        console.log(this.state);
         const species = this.props.species;
         if (this.props.currentStep !== 4) { 
             return null
@@ -50,9 +61,14 @@ class SpeciesChar extends React.Component {
                         <MenuItem  key={index} value={align}>{align}</MenuItem>
                     ))}
                 </Select>
-                {(this.props.species === 'Human' || this.props.species === 'High Elf') && <LanguagesPick species = {this.props.species}/>}
+                {(this.props.species === 'Human' || this.props.species === 'High Elf' || this.props.species === 'Half-Elf') && <LanguagesPick species = {this.props.species}/>}
+                {(this.props.species === 'High Elf') && <TrickPick species = {this.props.species}/>}
+                {(this.props.species === 'Mountain Dwarf' || this.props.species === 'Hill Dwarf') && <ToolsPick species = {this.props.species}/>}
+                {(this.props.species === 'Dragonborn') && <Dragons species = {this.props.species}/>}
+                
             </FormControl>
             </form>
+                {(this.props.species === 'Half-Elf') && <Skills species = {this.props.species}/>}        
             {(species !== 'Human') && 
                 <h3>As {species}, You have proficiences: <br/>{this.context.species_char[species].proficiency.toString()}</h3>
             }
