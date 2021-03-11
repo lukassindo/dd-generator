@@ -30,7 +30,7 @@ class Species extends React.Component {
 
     render() {
         if (this.props.currentStep !== 1) { // Prop: The current step
-            return null
+            return (<></>)
         }
 
         return (

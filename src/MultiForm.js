@@ -59,13 +59,13 @@ class MultiForm extends React.Component  {
 
  checkButtons() {
   if(this.state.currentStep === 2 && this.state.profession !== '') this.setState({button: false})
-  if(this.context.final) this.setState({button:false});
-  
+  if(this.state.currentStep === 3 && this.context.final) this.setState({button:false});
  }
 
   render () {
     let currentStep = this.state.currentStep;
     console.log(currentStep);
+    console.log(this.state.button)
     const previousButton = (
       <Button className="previous" style={{color:"#fff", borderColor: "#fff"}}
         size="large"
@@ -100,7 +100,7 @@ class MultiForm extends React.Component  {
             <Species  buttonState={this.handleButton} currentStep={this.state.currentStep} handleData = {this.handleUserData} />
             <Classes buttonState={this.handleButton} currentStep={this.state.currentStep} handleData = {this.handleUserData} />
             <Features buttonState={this.handleButton} species={this.state.species} profession={this.state.profession} currentStep={this.state.currentStep}/>
-            <SpeciesChar buttonState={this.handleButton} species={this.state.species} currentStep={this.state.currentStep}/>
+            <SpeciesChar buttonState={this.handleButton} button={this.state.button} species={this.state.species} currentStep={this.state.currentStep}/>
             <div className="buttons">
               {currentStep !== 1 && previousButton}
               {currentStep < 5 && nextButton } 

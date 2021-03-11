@@ -30,7 +30,7 @@ class Classes extends React.Component {
 
     render() {
         if (this.props.currentStep !== 2) { 
-            return null
+            return (<></>)
         }
 
         return (

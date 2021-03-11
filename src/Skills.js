@@ -24,7 +24,7 @@ class Skills extends React.Component {
              <FormControl className="classic" style={{marginTop: '16px'}}>
                  <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick two skills</InputLabel>
                 <Select 
-                    onChange={(e) =>this.context.updatePerson('skills', e.target.value)}
+                    onChange={(e) => this.props.getValue('skills', e)}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}

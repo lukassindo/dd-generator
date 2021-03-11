@@ -23,7 +23,7 @@ class Dragons extends React.Component {
              <FormControl className="classic" style={{marginTop: '16px'}}>
                  <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick Your Dragon</InputLabel>
                 <Select 
-                    onChange={(e) =>this.context.updatePerson('tools', e.target.value)}
+                    onChange={(e) => this.props.getValue('dragons', e)}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}

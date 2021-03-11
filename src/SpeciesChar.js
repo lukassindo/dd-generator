@@ -18,40 +18,111 @@ class SpeciesChar extends React.Component {
 
     constructor(props, context) {
         super(props);
+   
+        this.state = {
+            name: '',
+            gender: '',
+            alignment: '',
+            languages: [],
+            tricks: [],
+            tools:[],
+            dragons: [],
+            skills: [],
+        }
+
         this.handleData = this.handleData.bind(this);
-        this.state = context.person;
+        this.getValue = this.getValue.bind(this);
+        
     }
+    
 
 
-    componentDidUpdate(prevState) {
+    componentDidUpdate(prevProps, prevState) {
         console.log(prevState);
-    if (prevState.languages !== this.state.languages) {
-          console.log('changed');
+        let char = this.state;
+        // if(prevState.name !== char.name && prevState.gender !== char.gender && prevState.alignment !== char.alignment && prevProps.button === true) this.handleData();
+        if(prevState.name !== char.name) {
+            this.context.updatePerson('name',char.name);
+        }
+        if(prevState.gender !== char.gender) {
+            this.context.updatePerson('gender',char.gender);
+        }
+        if(prevState.alignment !== char.alignment) {
+            this.context.updatePerson('alignment',char.alignment);
+        }
+        if(prevState.languages !== char.languages) {
+            this.context.updatePerson('languages',char.languages);
+        }
+        if(prevState.tricks !== char.tricks) {
+            this.context.updatePerson('tricks',char.tricks);
+        }
+        if(prevState.tools !== char.tools) {
+            this.context.updatePerson('tools',char.tools);
+        }
+        if(prevState.dragons !== char.dragons) {
+            this.context.updatePerson('dragons',char.dragons);
+        }
+        if(prevState.skills !== char.skills) {
+            this.context.updatePerson('skills',char.skills);
         }
     }
 
+    
+
+    getValue(key, event) {
+        const data = event.target.value;
+        this.setState({[key]: data}, this.handleData);
+    }
+
     handleData() {
-        this.props.buttonState('clicked')
+        let char = this.state;
+        const species = this.props.species;
+        if(char.name !== '' && char.gender !== '' && char.alignment !== '') {
+            if(species === 'Drow - Dark Elf' || species === 'Forest Elf' || species === 'Halfling - Lightfoot' || species === 'Halfling - Stout' || species === 'Tiefling' || species === 'Forest Gnome' || species === 'Rock Gnome' || species === 'Half-Orc') {
+                this.props.buttonState('clicked');
+            }
+            if(species === 'Human' && char.languages.length !== 0) {
+                this.props.buttonState('clicked');
+            }
+            if(species === 'Half-Elf' && char.languages.length !== 0 && this.context.person.skills.length === 2) {
+                this.props.buttonState('clicked');
+            }
+            if(species === 'High Elf' && char.languages.length !== 0 && char.tricks.length !== 0) {
+                this.props.buttonState('clicked');
+            }
+            if(species === 'Mountain Dwarf' && char.tools.length !== 0 || species === 'Hill Dwarf' && char.tools.length !== 0) {
+                this.props.buttonState('clicked');
+            }
+            if(species === 'Dragonborn' && char.dragons.length !== 0) {
+                this.props.buttonState('clicked');
+            }
+            
+        }
+        
+        
+        
+        
     }
 
 
 
     render() {
         console.log(this.state);
+        console.log(this.context.person)
         const species = this.props.species;
         if (this.props.currentStep !== 4) { 
-            return null
+            return (<></>)
         }
         return (
             <>
             <div><h2>Brave {this.props.species}. Tell us more about Yourself</h2></div>
             <form className='charData' noValidate autoComplete="off">
-                <TextField onChange={(e) =>this.context.updatePerson('name', e.target.value)} id="standard-basic" label="Your name" />
-                <TextField onChange={(e) =>this.context.updatePerson('gender', e.target.value)} id="standard-basic" label="Your gender" />
+                <TextField onChange={(e) =>this.getValue('name', e)} id="standard-basic" label="Your name" />
+                <TextField onChange={(e) =>this.getValue('gender', e)} id="standard-basic2" label="Your gender" />
                 <FormControl className="classic">
                  <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick Your Alignment</InputLabel>
                 <Select 
-                    onChange={(e) => this.context.updatePerson('alignment',e.target.value)}
+                    onChange={(e) => this.getValue('alignment', e)}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}
@@ -61,14 +132,14 @@ class SpeciesChar extends React.Component {
                         <MenuItem  key={index} value={align}>{align}</MenuItem>
                     ))}
                 </Select>
-                {(this.props.species === 'Human' || this.props.species === 'High Elf' || this.props.species === 'Half-Elf') && <LanguagesPick species = {this.props.species}/>}
-                {(this.props.species === 'High Elf') && <TrickPick species = {this.props.species}/>}
-                {(this.props.species === 'Mountain Dwarf' || this.props.species === 'Hill Dwarf') && <ToolsPick species = {this.props.species}/>}
-                {(this.props.species === 'Dragonborn') && <Dragons species = {this.props.species}/>}
+                {(this.props.species === 'Human' || this.props.species === 'High Elf' || this.props.species === 'Half-Elf') && <LanguagesPick getValue= {this.getValue} species = {this.props.species}/>}
+                {(this.props.species === 'High Elf') && <TrickPick getValue= {this.getValue} species = {this.props.species}/>}
+                {(this.props.species === 'Mountain Dwarf' || this.props.species === 'Hill Dwarf') && <ToolsPick getValue= {this.getValue} species = {this.props.species}/>}
+                {(this.props.species === 'Dragonborn') && <Dragons getValue= {this.getValue} species = {this.props.species}/>}
                 
             </FormControl>
             </form>
-                {(this.props.species === 'Half-Elf') && <Skills species = {this.props.species}/>}        
+                {(this.props.species === 'Half-Elf') && <Skills getValue= {this.getValue} species = {this.props.species}/>}        
             {(species !== 'Human') && 
                 <h3>As {species}, You have proficiences: <br/>{this.context.species_char[species].proficiency.toString()}</h3>
             }

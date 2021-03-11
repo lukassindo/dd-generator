@@ -23,7 +23,7 @@ class ToolsPick extends React.Component {
              <FormControl className="classic" style={{marginTop: '16px'}}>
                  <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick one artisan`s tool</InputLabel>
                 <Select 
-                    onChange={(e) =>this.context.updatePerson('tools', e.target.value)}
+                    onChange={(e) => this.props.getValue('tools', e)}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}

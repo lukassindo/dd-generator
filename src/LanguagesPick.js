@@ -22,7 +22,7 @@ class LanguagesPick extends React.Component {
              <FormControl className="classic" style={{marginTop: '16px'}}>
                  <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Additional Language</InputLabel>
                 <Select 
-                    onChange={(e) =>this.context.updatePerson('languages', e.target.value)}
+                    onChange={(e) => this.props.getValue('languages', e)}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}
