@@ -13,7 +13,7 @@ import AbilityCells from './AbilityCells';
 import Bonus from './Bonus';
 import FinalValues from './FinalValues';
 import DataContext from './contexts/DataContext';
-
+import {data} from './data/data.js';
 
 
 
@@ -52,7 +52,7 @@ class Features extends React.Component {
 
     confirmMethod() {
         let state = [...this.context.actualState]
-        const bonus =  [...this.context.speciesBonus[this.props.species]];
+        const bonus =  [...data.speciesBonus[this.props.species]];
         for(let i=0; i < state.length; i++) {
             if(bonus[i] === parseInt(bonus[i], 10)) state[i] += bonus[i]
         }

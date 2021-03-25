@@ -6,6 +6,7 @@ import Species from './Species';
 import Classes from './Classes';
 import Features from './Features';
 import SpeciesChar from './SpeciesChar';
+import ClassChar from './ClassChar';
 import Button from '@material-ui/core/Button';
 import DataContext from './contexts/DataContext';
 
@@ -50,7 +51,7 @@ class MultiForm extends React.Component  {
  next() {
     let currentStep = this.state.currentStep
     // If the current step is 1 or 2, then add one on "next" button click
-    currentStep = currentStep >= 3 ? 4: currentStep + 1
+    currentStep = currentStep >= 4 ? 5: currentStep + 1
     this.setState({
       currentStep: currentStep,
       button: true
@@ -101,6 +102,7 @@ class MultiForm extends React.Component  {
             <Classes buttonState={this.handleButton} currentStep={this.state.currentStep} handleData = {this.handleUserData} />
             <Features buttonState={this.handleButton} species={this.state.species} profession={this.state.profession} currentStep={this.state.currentStep}/>
             <SpeciesChar buttonState={this.handleButton} button={this.state.button} species={this.state.species} currentStep={this.state.currentStep}/>
+            <ClassChar finals={this.context.finalValues} profession={this.state.profession} buttonState={this.handleButton} button={this.state.button} species={this.state.species} currentStep={this.state.currentStep}/>
             <div className="buttons">
               {currentStep !== 1 && previousButton}
               {currentStep < 5 && nextButton } 

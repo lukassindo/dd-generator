@@ -6,6 +6,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import DataContext from './contexts/DataContext';
 import Fade from '@material-ui/core/Fade';
+import {data} from './data/data.js';
 
 class TrickPick extends React.Component {
     constructor(props) {
@@ -28,7 +29,7 @@ class TrickPick extends React.Component {
                     style={{color: "#fff"}}
                 >
                       
-                      {this.context.species_char[species].tricks.map((trick,index) => (
+                      {data.species_char[species].tricks.map((trick,index) => (
                         <MenuItem  key={index} value={trick}>{trick}</MenuItem>
                     ))}
                 </Select>

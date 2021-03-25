@@ -1,7 +1,5 @@
 import React from 'react';
 import 'fontsource-roboto';
-import Button from '@material-ui/core/Button';
-import Fade from '@material-ui/core/Fade';
 import DataContext from './contexts/DataContext';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
@@ -13,6 +11,7 @@ import TrickPick from './TrickPick';
 import ToolsPick from './ToolsPick';
 import Dragons from './Dragons';
 import Skills from './Skills';
+import {data} from './data/data.js';
 
 class SpeciesChar extends React.Component {
 
@@ -38,7 +37,6 @@ class SpeciesChar extends React.Component {
 
 
     componentDidUpdate(prevProps, prevState) {
-        console.log(prevState);
         let char = this.state;
         // if(prevState.name !== char.name && prevState.gender !== char.gender && prevState.alignment !== char.alignment && prevProps.button === true) this.handleData();
         if(prevState.name !== char.name) {
@@ -107,15 +105,13 @@ class SpeciesChar extends React.Component {
 
 
     render() {
-        console.log(this.state);
-        console.log(this.context.person)
         const species = this.props.species;
         if (this.props.currentStep !== 4) { 
             return (<></>)
         }
         return (
             <>
-            <div><h2>Brave {this.props.species}. Tell us more about Yourself</h2></div>
+            <div><h2>Brave {species}. Tell us more about Yourself</h2></div>
             <form className='charData' noValidate autoComplete="off">
                 <TextField onChange={(e) =>this.getValue('name', e)} id="standard-basic" label="Your name" />
                 <TextField onChange={(e) =>this.getValue('gender', e)} id="standard-basic2" label="Your gender" />
@@ -128,7 +124,7 @@ class SpeciesChar extends React.Component {
                     style={{color: "#fff"}}
                 >
                       
-                    {this.context.species_char[species].alignment.map((align,index) => (
+                    {data.species_char[species].alignment.map((align,index) => (
                         <MenuItem  key={index} value={align}>{align}</MenuItem>
                     ))}
                 </Select>
@@ -141,7 +137,7 @@ class SpeciesChar extends React.Component {
             </form>
                 {(this.props.species === 'Half-Elf') && <Skills getValue= {this.getValue} species = {this.props.species}/>}        
             {(species !== 'Human') && 
-                <h3>As {species}, You have proficiences: <br/>{this.context.species_char[species].proficiency.toString()}</h3>
+                <h3>As {species}, You have proficiences: <br/>{data.species_char[species].proficiency.toString()}</h3>
             }
           
             

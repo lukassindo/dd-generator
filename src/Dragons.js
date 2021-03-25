@@ -6,6 +6,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import DataContext from './contexts/DataContext';
 import Fade from '@material-ui/core/Fade';
+import {data} from './data/data.js';
 
 class Dragons extends React.Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class Dragons extends React.Component {
                     style={{color: "#fff"}}
                 >
                       
-                      {this.context.species_char[species].dragons.map((dragon,index) => (
+                      {data.species_char[species].dragons.map((dragon,index) => (
                         <MenuItem  key={index} value={dragon}>{dragon}</MenuItem>
                     ))}
                 </Select>

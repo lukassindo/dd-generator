@@ -6,6 +6,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import DataContext from './contexts/DataContext';
 import Fade from '@material-ui/core/Fade';
+import {data} from './data/data.js';
 
 class ToolsPick extends React.Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class ToolsPick extends React.Component {
                     style={{color: "#fff"}}
                 >
                       
-                      {this.context.species_char[species].tools.map((tool,index) => (
+                      {data.species_char[species].tools.map((tool,index) => (
                         <MenuItem  key={index} value={tool}>{tool}</MenuItem>
                     ))}
                 </Select>

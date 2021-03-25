@@ -6,6 +6,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import DataContext from './contexts/DataContext';
 import Fade from '@material-ui/core/Fade';
+import {data} from './data/data.js';
 
 class LanguagesPick extends React.Component {
     constructor(props) {
@@ -28,7 +29,7 @@ class LanguagesPick extends React.Component {
                     style={{color: "#fff"}}
                 >
                       
-                      {this.context.species_char[species].languages.map((lang,index) => (
+                      {data.species_char[species].languages.map((lang,index) => (
                         <MenuItem  key={index} value={lang}>{lang}</MenuItem>
                     ))}
                 </Select>

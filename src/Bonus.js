@@ -2,6 +2,7 @@ import React from 'react';
 import DataContext from './contexts/DataContext';
 import TableCell from '@material-ui/core/TableCell';
 import InputLabel from '@material-ui/core/InputLabel';
+import {data} from './data/data.js';
 
 
 class Bonus extends React.Component {
@@ -11,7 +12,7 @@ constructor(props, context) {
     
   
     const species = this.props.species;
-    let bonus = [...context.speciesBonus[species]];
+    let bonus = [...data.speciesBonus[species]];
     let values = bonus.map(item =>{
         if(item !== '') item = `Bonus + ${item}`
         return item;

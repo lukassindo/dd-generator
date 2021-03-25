@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import DataContext from './contexts/DataContext';
-import Fade from '@material-ui/core/Fade';
+import {data} from './data/data.js';
 
 class Skills extends React.Component {
     constructor(props) {
@@ -30,7 +30,7 @@ class Skills extends React.Component {
                     style={{color: "#fff"}}
                 >
                       
-                      {this.context.species_char[species].skills.map((skill,index) => (
+                      {data.species_char[species].skills.map((skill,index) => (
                         <MenuItem  key={index} value={skill}>{skill}</MenuItem>
                     ))}
                 </Select>
