@@ -21,14 +21,13 @@ class TrickPick extends React.Component {
             <>
             <Fade in={true}>
              <FormControl className="classic" style={{marginTop: '16px'}}>
-                 <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick One magic trick</InputLabel>
+                <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick One magic trick</InputLabel>
                 <Select 
                     onChange={(e) => this.props.getValue('tricks', e)}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}
                 >
-                      
                       {data.species_char[species].tricks.map((trick,index) => (
                         <MenuItem  key={index} value={trick}>{trick}</MenuItem>
                     ))}

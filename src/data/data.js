@@ -141,6 +141,7 @@ export const data = {
             weapons: ['simple weapons','hand crossbows','longswords','rapiers','shortswords'],
             saving_throws: ['Dexterity', 'Charisma'],
             skills_pick: 2,
+            tools: [],
             skills: ['empty','Animal Handling', 'Athletics', 'Intimidation', 'Nature', 'Perception', 'Survival'],
             equip: ['An explorer’s pack and four javelins', ['(a) a greataxe', '(b) any martial melee weapon'], ['(a) two handaxes', '(b) any simple weapon']],
             proficiency: ['Rage', 'Unarmored Defense']
@@ -152,10 +153,14 @@ export const data = {
             weapons: ['simple weapons','martial weapons'],
             saving_throws: ['Strength', 'Constitution'],
             skills_pick: 3,
+            tricks_pick: 2,
+            spells_pick: 4,
             skills: ['empty','Athletics','Acrobatics','Sleight of Hand','Stealth','Arcana','History','Investigation','Nature','Religion','Animal Handling','Insight','Medicine','Perception','Survival','Deception','Intimidation','Performance','Persuasion'],
-            tools: ['Bagpipes','Drum','Dulcimer','Flute','Lute','Lyre','Horn','Pan flute','Shawm','Viol'],
+            instruments: ['empty','Bagpipes','Drum','Dulcimer','Flute','Lute','Lyre','Horn','Pan flute','Shawm','Viol'],
             equip: ['Leather armor and a dagger', ['(a) a rapier', '(b) a longsword', '(c) any simple weapon'], ['(a) a diplomat’s pack', '(b) an entertainer’s pack'], ['(a) a lute', '(b) any other musical instrument']],
-            proficiency: ['Spellcasting','Bardic Inspiration']
+            proficiency: ['Spellcasting','Bardic Inspiration'],
+            classTricks: ['empty','Dancing Lights','Friends','Light','Mage Hand','Message','Minor Illusion','Prestidigitation','Vicious Mockery','True Strike','Mending','Blade Ward'],
+            spells: ['empty','Animal Friendship','Bane','Charm Person','Comprehend Languages','Cure Wounds','Detect Magic','Disguise Self','Dissonant Whispers','Distort Value','Earth Tremor','Faerie Fire','Feather Fall','Healing Word','Heroism','Hideous Laughter','Identify','Illusory Script','Longstrider','Silent Image','Sleep','Speak with Animals','Tasha`s Hideous Laughter','Thunderwave','Unseen Servant'],
         },
         'Warlock': {
             hit_dice: '1k8',
@@ -164,6 +169,7 @@ export const data = {
             weapons: ['simple weapons'],
             saving_throws: ['Wisdom', 'Charisma'],
             skills_pick: 2,
+            tools: [],
             skills: ['empty','Arcana', 'Deception', 'History', 'Intimidation', 'Investigation', 'Nature', 'Religion'],
             equip: ['Leather armor, any simple weapon, and two daggers', ['(a) a light crossbow and 20 bolts', '(b) any simple weapon'], ['(a) a component pouch', '(b) an arcane focus'], ['(a) a scholar’s pack', '(b) a dungeoneer’s pack']],
             proficiency: ['Otherworldly Patron','Pact Magic']
@@ -236,21 +242,8 @@ export const data = {
             saving_throws: ['Strength', 'Dexterity'],
             skills_pick: 2,
             skills: ['empty','Acrobatics', 'Athletics', 'History', 'Insight', 'Religion','Stealth'],
-            instruments: ['Bagpipes','Drum','Dulcimer','Flute','Lute','Lyre','Horn','Pan flute','Shawm','Viol'],
-            tools: ['Alchemist’s supplies','Tinker’s tools','Glassblower’s tools','Jeweler’s tools','Brewer’s supplies','Smith’s tools','Cartographer’s tools','Mason’s tools','Calligrapher`s Supplies','Painter’s supplies','Potter’s tools','Carpenter’s tools','Cobbler’s tools','Leatherworker’s tools','Cook’s utensils','Weaver’s tools','Woodcarver’s tools'],
-            equip: ['10 darts', ['a shortsword', 'simple weapon'], ['a dungeoneer’s pack', 'an explorer’s pack']],
-            proficiency: ['Unarmored Defense','Martial Arts']
-        },
-        'Monk': {
-            hit_dice: '1k8',
-            hit_points: 8,
-            armor: [],
-            weapons: ['Simple weapons, shortswords'],
-            saving_throws: ['Strength', 'Dexterity'],
-            skills_pick: 2,
-            skills: ['empty','Acrobatics', 'Athletics', 'History', 'Insight', 'Religion','Stealth'],
-            instruments: ['Bagpipes','Drum','Dulcimer','Flute','Lute','Lyre','Horn','Pan flute','Shawm','Viol'],
-            tools: ['Alchemist’s supplies','Tinker’s tools','Glassblower’s tools','Jeweler’s tools','Brewer’s supplies','Smith’s tools','Cartographer’s tools','Mason’s tools','Calligrapher`s Supplies','Painter’s supplies','Potter’s tools','Carpenter’s tools','Cobbler’s tools','Leatherworker’s tools','Cook’s utensils','Weaver’s tools','Woodcarver’s tools'],
+            instruments: ['empty','Bagpipes','Drum','Dulcimer','Flute','Lute','Lyre','Horn','Pan flute','Shawm','Viol'],
+            tools: ['empty','Alchemist’s supplies','Tinker’s tools','Glassblower’s tools','Jeweler’s tools','Brewer’s supplies','Smith’s tools','Cartographer’s tools','Mason’s tools','Calligrapher`s Supplies','Painter’s supplies','Potter’s tools','Carpenter’s tools','Cobbler’s tools','Leatherworker’s tools','Cook’s utensils','Weaver’s tools','Woodcarver’s tools'],
             equip: ['10 darts', ['a shortsword', 'simple weapon'], ['a dungeoneer’s pack', 'an explorer’s pack']],
             proficiency: ['Unarmored Defense','Martial Arts']
         },

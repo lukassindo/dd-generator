@@ -28,6 +28,7 @@ class Dragons extends React.Component {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}
+                    value={this.context.person.dragons}
                 >
                       
                       {data.species_char[species].dragons.map((dragon,index) => (

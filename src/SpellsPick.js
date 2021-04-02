@@ -8,34 +8,34 @@ import DataContext from './contexts/DataContext';
 import Fade from '@material-ui/core/Fade';
 import {data} from './data/data.js';
 
-class LanguagesPick extends React.Component {
+class SpellsPick extends React.Component {
     constructor(props) {
         super(props);
     }
     
 
     render() {
-        const species = this.props.species;
+        const prof = this.props.profession;
         return (
             
             <>
-            <Fade in={true}>
+            <div className="spells pick">
+                <h4>As {prof} You can pick {data.class_char[prof].spells_pick} spells</h4>   
              <FormControl className="classic" style={{marginTop: '16px'}}>
-                 <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Additional Language</InputLabel>
+                <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick {data.class_char[prof].spells_pick} spells</InputLabel>
                 <Select 
-                    onChange={(e) => this.props.getValue('languages', e)}
+                    onChange={(e) => this.props.getValue('spells', e)}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}
-                   
-                >
-                      
-                      {data.species_char[species].languages.map((lang,index) => (
-                        <MenuItem  key={index} value={lang}>{lang}</MenuItem>
+                >  
+                      {data.class_char[prof].spells.map((spell,index) => (
+                        <MenuItem  key={index} value={spell}>{spell}</MenuItem>
                     ))}
                 </Select>
             </FormControl>
-            </Fade>
+            {(this.context.person.spells.length !== 0) && <h4>You've picked {this.context.person.spells.toString()}</h4>}
+           </div>
            
            </> 
         )
@@ -44,5 +44,5 @@ class LanguagesPick extends React.Component {
 
 }
 
-LanguagesPick.contextType=DataContext;
-export default LanguagesPick;
+SpellsPick.contextType=DataContext;
+export default SpellsPick;

@@ -16,6 +16,9 @@
     border: none;
     opacity: 1;
 }
+
+.classAtr legend.MuiFormLabel-root {color: #fff;text-decoration: underline;}
+
 #values .MuiSelect-select.MuiSelect-select {
   font-size: 0;
 }

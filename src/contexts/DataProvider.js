@@ -26,10 +26,17 @@ class DataProvider extends React.Component {
                 tools:[],
                 dragons: [],
                 skills: [],
-                equip: [],
+                equip1: [],
+                equip2: [],
+                equip3: [],
+                equip4: [],
                 prof: [],
                 mods: [],
-                
+                spells: [], 
+                classSkills: [],
+                classTricks: [],
+                classSpells: [],
+                instruments: [],
             },
             update: this.updateState,
             updatePerson: this.addPersonData,
@@ -40,18 +47,18 @@ class DataProvider extends React.Component {
 		this.setState(values)
 	}
 
-    addPersonData(key, value) {
+    addPersonData(key, value, pick) {
         let personData = {...this.state.person};
         // let filled = personData.filled;
         // filled += 1;
         // personData.filled = filled;
-        if (key === 'languages' || key === 'tricks' || key === 'tools' || key === 'dragons') {
+        if (key === 'languages' || key === 'tricks' || key === 'tools' || key === 'dragons' || key === 'equip1' || key === 'equip2' || key === 'equip3' || key === 'equip4'  ) {
             let goodKey = personData[key];
             goodKey.splice(0,1,value);
-        } else if (key === 'skills') {
+        } else if (key === 'skills' || key === 'classSkills' || key === 'instruments' || key === 'classTricks' || key === 'spells') {
             let goodKey = personData[key];
             if (value === 'empty') { goodKey.splice(0, goodKey.length)
-            } else if(goodKey.length <= 1) {
+            } else if(goodKey.length <= pick) {
                 goodKey.push(value); 
             } else {
                 goodKey.splice(0,1,value);

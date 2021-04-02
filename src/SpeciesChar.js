@@ -10,7 +10,7 @@ import LanguagesPick from './LanguagesPick';
 import TrickPick from './TrickPick';
 import ToolsPick from './ToolsPick';
 import Dragons from './Dragons';
-import Skills from './Skills';
+import {HalfelfSkills} from './Skills';
 import {data} from './data/data.js';
 
 class SpeciesChar extends React.Component {
@@ -61,7 +61,7 @@ class SpeciesChar extends React.Component {
             this.context.updatePerson('dragons',char.dragons);
         }
         if(prevState.skills !== char.skills) {
-            this.context.updatePerson('skills',char.skills);
+            this.context.updatePerson('skills',char.skills, 1);
         }
     }
 
@@ -113,8 +113,8 @@ class SpeciesChar extends React.Component {
             <>
             <div><h2>Brave {species}. Tell us more about Yourself</h2></div>
             <form className='charData' noValidate autoComplete="off">
-                <TextField onChange={(e) =>this.getValue('name', e)} id="standard-basic" label="Your name" />
-                <TextField onChange={(e) =>this.getValue('gender', e)} id="standard-basic2" label="Your gender" />
+                <TextField onChange={(e) =>this.getValue('name', e)} id="standard-basic" label="Your name" value={this.context.person.name} />
+                <TextField onChange={(e) =>this.getValue('gender', e)} id="standard-basic2" label="Your gender" value={this.context.person.gender} />
                 <FormControl className="classic">
                  <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick Your Alignment</InputLabel>
                 <Select 
@@ -122,6 +122,7 @@ class SpeciesChar extends React.Component {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}
+              
                 >
                       
                     {data.species_char[species].alignment.map((align,index) => (
@@ -135,7 +136,7 @@ class SpeciesChar extends React.Component {
                 
             </FormControl>
             </form>
-                {(this.props.species === 'Half-Elf') && <Skills getValue= {this.getValue} species = {this.props.species}/>}        
+                {(this.props.species === 'Half-Elf') && <HalfelfSkills getValue= {this.getValue} species = {this.props.species}/>}        
             {(species !== 'Human') && 
                 <h3>As {species}, You have proficiences: <br/>{data.species_char[species].proficiency.toString()}</h3>
             }

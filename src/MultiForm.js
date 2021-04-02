@@ -51,7 +51,7 @@ class MultiForm extends React.Component  {
  next() {
     let currentStep = this.state.currentStep
     // If the current step is 1 or 2, then add one on "next" button click
-    currentStep = currentStep >= 4 ? 5: currentStep + 1
+    currentStep = currentStep >= 5 ? 6: currentStep + 1
     this.setState({
       currentStep: currentStep,
       button: true
@@ -65,8 +65,6 @@ class MultiForm extends React.Component  {
 
   render () {
     let currentStep = this.state.currentStep;
-    console.log(currentStep);
-    console.log(this.state.button)
     const previousButton = (
       <Button className="previous" style={{color:"#fff", borderColor: "#fff"}}
         size="large"
@@ -105,7 +103,7 @@ class MultiForm extends React.Component  {
             <ClassChar finals={this.context.finalValues} profession={this.state.profession} buttonState={this.handleButton} button={this.state.button} species={this.state.species} currentStep={this.state.currentStep}/>
             <div className="buttons">
               {currentStep !== 1 && previousButton}
-              {currentStep < 5 && nextButton } 
+              {currentStep < 6 && nextButton } 
             </div>
           </main>
         </div>
