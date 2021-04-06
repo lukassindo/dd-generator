@@ -27,7 +27,6 @@ class LanguagesPick extends React.Component {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}
-                   
                 >
                       
                       {data.species_char[species].languages.map((lang,index) => (

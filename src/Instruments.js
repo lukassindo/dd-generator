@@ -19,7 +19,7 @@ class Instruments extends React.Component {
                 <FormControl className="classic" style={{marginTop: '16px'}}>
                     <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">{profession === 'Bard' ? 'Pick three instruments' : 'Pick one instrument'}</InputLabel>
                     <Select 
-                        onChange={(e) => this.props.getValue('instruments', e)}
+                        onChange={(e) => this.props.getValue('instruments', e.target.value)}
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         style={{color: "#fff"}}

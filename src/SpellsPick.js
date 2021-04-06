@@ -11,7 +11,11 @@ import {data} from './data/data.js';
 class SpellsPick extends React.Component {
     constructor(props) {
         super(props);
+
     }
+
+
+
     
 
     render() {
@@ -23,15 +27,22 @@ class SpellsPick extends React.Component {
                 <h4>As {prof} You can pick {data.class_char[prof].spells_pick} spells</h4>   
              <FormControl className="classic" style={{marginTop: '16px'}}>
                 <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick {data.class_char[prof].spells_pick} spells</InputLabel>
+                
                 <Select 
-                    onChange={(e) => this.props.getValue('spells', e)}
+                    onChange={(e) => this.props.getValue('spells', e.target.value)}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}
                 >  
-                      {data.class_char[prof].spells.map((spell,index) => (
+                {(prof === 'Warlock') ? 
+                    this.props.spells.map((spell,index) => (
                         <MenuItem  key={index} value={spell}>{spell}</MenuItem>
-                    ))}
+                    ))
+                  : data.class_char[prof].spells.map((spell,index) => (
+                    <MenuItem  key={index} value={spell}>{spell}</MenuItem>
+                ))
+
+                }
                 </Select>
             </FormControl>
             {(this.context.person.spells.length !== 0) && <h4>You've picked {this.context.person.spells.toString()}</h4>}

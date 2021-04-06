@@ -169,10 +169,14 @@ export const data = {
             weapons: ['simple weapons'],
             saving_throws: ['Wisdom', 'Charisma'],
             skills_pick: 2,
+            tricks_pick: 2,
+            spells_pick: 2,
             tools: [],
             skills: ['empty','Arcana', 'Deception', 'History', 'Intimidation', 'Investigation', 'Nature', 'Religion'],
             equip: ['Leather armor, any simple weapon, and two daggers', ['(a) a light crossbow and 20 bolts', '(b) any simple weapon'], ['(a) a component pouch', '(b) an arcane focus'], ['(a) a scholar’s pack', '(b) a dungeoneer’s pack']],
-            proficiency: ['Otherworldly Patron','Pact Magic']
+            proficiency: ['Otherworldly Patron','Pact Magic'],
+            classTricks: ['empty','Friends','Mage Hand','Minor Illusion','Prestidigitation','True Strike','Blade Ward','Chill Touch','Poison Spray','Eldritch Blast'],
+            spells: ['empty','Armor of Agathys','Arms of Hadar','Charm Person','Comprehend Languages','Cause Fear','Distort Value','Expeditious Retreat','Hellish Rebuke','Hex','Illusory Script','Protection from Evil and Good','With Bolt','Unseen Servant'],
         },
         'Druid': {
             hit_dice: '1k8',
@@ -181,10 +185,14 @@ export const data = {
             weapons: ['Clubs', 'daggers', 'darts', 'javelins', 'maces', 'quarterstaffs', 'scimitars', 'sickles', 'slings', 'spears'],
             saving_throws: ['Wisdom', 'Intelligence'],
             skills_pick: 2,
+            tricks_pick: 2,
+            spells_pick: 2,
             skills: ['empty','Arcana', 'Animal Handling', 'Insight', 'Medicine', 'Nature', 'Perception', 'Religion', 'Survival'],
             tools: ['Herbalism kit'],
             equip: ['Leather armor, an explorer’s pack, and a druidic focus', ['(a) a wooden shield', '(b) any simple weapon'], ['(a) a scimitar', '(b) any simple melee weapon']],
-            proficiency: ['Druidic','Spellcasting']
+            proficiency: ['Druidic','Spellcasting'],
+            classTricks: ['empty','Mending','Thorn Whip','Resistance','Shillelagh','Guidance','Create Bonfire','Poison Spray'],
+            spells: ['empty','Faerie Fire','Fog Cloud','Goodberry','Thunderwave','Healing Word','Cure Wounds','Purify Food and Drink','Entangle','Animal Friendship','Speak with animals','Jump','Create or Destroy Water','Longstrider','Detect Magic','Charm Person','Detect Poison and Disease'],
         },
         'Cleric': {
             hit_dice: '1k8',
@@ -193,10 +201,13 @@ export const data = {
             weapons: ['simple weapons'],
             saving_throws: ['Wisdom', 'Charisma'],
             skills_pick: 2,
+            tricks_pick: 3,
             skills: ['empty','History', 'Insight', 'Medicine', 'Persuasion', 'Religion'],
             tools: [],
             equip: ['A shield and a holy symbol', ['(a) a mace', 'a warhammer (if proficient)'], ['(a) scale mail', '(b) leather armor', '(c) chain mail (if proficient)'], ['(a) a light crossbow and 20 bolts', '(b) any simple weapon'], ['(a) a priest’s pack', '(b) an explorer’s pack']],
-            proficiency: ['Spellcasting','Divine Domain']
+            proficiency: ['Spellcasting','Divine Domain'],
+            classTricks: ['empty','Mending','Resistance','Guidance','Light','Sacred Flame','Spare the Dying','Thaumaturgy'],
+            domains: ['Knowledge','Life','Light','Nature','Tempest','Trickery','War'],
         },
         'Rogue': {
             hit_dice: '1k8',

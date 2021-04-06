@@ -33,7 +33,7 @@ class Equip extends React.Component {
                         return (
                                 <FormControl component="fieldset">
                                     <FormLabel component="legend">Pick one from these:</FormLabel>
-                                    <RadioGroup aria-label="equipment" name={`equipment${index}`} onChange={(e)=> this.props.getValue(`equip${index}`,e)}>
+                                    <RadioGroup aria-label="equipment" name={`equipment${index}`} onChange={(e)=> this.props.getValue(`equip${index}`,e.target.value)}>
                                         {item.map((el,i) => (
                                             <FormControlLabel key={i} value={el} control={<Radio />} label={el}/>     
                                         ))}

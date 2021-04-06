@@ -15,7 +15,7 @@ const SkillsClass = (props) => {
             <FormControl className="classic" style={{marginTop: '16px'}}>
                 <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick {data.class_char[profession].skills_pick} skills</InputLabel>
                 <Select 
-                onChange={(e) => props.getValue('classSkills', e)}
+                onChange={(e) => props.getValue('classSkills', e.target.value)}
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 style={{color: "#fff"}}

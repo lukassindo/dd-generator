@@ -15,14 +15,27 @@ class ClassTricks extends React.Component {
 
     render() {
         const prof = this.props.profession;
+        let key;
+        let numb;
+        if(this.context.person.domain === 'Nature' && prof === 'Druid') {
+            key = 'deityTricks';
+            numb = 1;
+        } else { 
+            key = 'classTricks'
+            numb = data.class_char[prof].tricks_pick;
+        }
         return (
             <>
             <div className="tricks pick">
-                <h4>As {prof} You can pick {data.class_char[prof].tricks_pick} tricks</h4> 
+                {(this.context.person.domain === 'Nature' && prof === 'Druid') ? 
+                <h4>As Nature Cleric You can pick 1 Druid trick</h4> 
+                : <h4>As {prof} You can pick {data.class_char[prof].tricks_pick} tricks</h4>
+                }
+                 
                 <FormControl className="classic" style={{marginTop: '16px'}}>
-                    <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick {data.class_char[prof].tricks_pick} magic trick(s)</InputLabel>
+                    <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick {numb} magic trick(s)</InputLabel>
                     <Select 
-                        onChange={(e) => this.props.getValue('classTricks', e)}
+                        onChange={(e) => this.props.getValue(key, e.target.value)}
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         style={{color: "#fff"}}
@@ -32,7 +45,7 @@ class ClassTricks extends React.Component {
                         ))}
                     </Select>
                 </FormControl>
-                {(this.context.person.classTricks.length !== 0) && <h4>You've picked {this.context.person.classTricks.toString()}</h4>}
+                {(this.context.person.classTricks.length !== 0 && this.props.mainpick) && <h4>You've picked {this.context.person.classTricks.toString()}</h4>}
             </div>
            
            </> 

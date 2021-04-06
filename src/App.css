@@ -8,7 +8,10 @@
   height: 30vmin;
   pointer-events: none;
 }
-
+ul {list-style: none;}
+.patrons button {
+  margin: 3px 10px;
+}
 #values .MuiSelect-nativeInput { 
     height: 100%;
     color: #fff;
@@ -90,4 +93,17 @@ form.charData input {
   color: #fff;
   text-align: center;
   font-size: 1rem;
+}
+.classAtr p {
+  margin: 10px;
+}
+.classAtr ul {
+  margin: 0;;
+}
+.classAtr h4 {
+  margin-bottom: 0;
+}
+
+.classAtr .MuiFormControl-root.classic {
+  margin-top: 0 !important;
 }

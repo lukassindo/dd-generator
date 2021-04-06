@@ -27,6 +27,7 @@ class TrickPick extends React.Component {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}
+                    value={this.context.person.tricks[0]}
                 >
                       {data.species_char[species].tricks.map((trick,index) => (
                         <MenuItem  key={index} value={trick}>{trick}</MenuItem>

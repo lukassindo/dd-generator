@@ -13,6 +13,8 @@ import Equip from './Equip';
 import Instruments from './Instruments';
 import ClassTricks from './ClassTricks';
 import SpellsPick from './SpellsPick';
+import Button from '@material-ui/core/Button';
+import Domain from './Domain';
 
 class ClassChar extends React.Component {
 
@@ -23,18 +25,27 @@ class ClassChar extends React.Component {
             instruments: [],
             classTricks: [],
             spells: [],
+            warlock: false,
+            warlock_spells: [],
+            domain: '',
+            deityTricks:[],
         }
 
         this.getValue = this.getValue.bind(this);
         this.handleData = this.handleData.bind(this);
+        this.setPatron = this.setPatron.bind(this);
     }
-    
+
     componentDidUpdate(prevProps, prevState) {
         let atr = this.state;
         const profession = this.props.profession;
         if(prevProps.currentStep !== this.props.currentStep) {
         const mods = modificatorService.modificator(this.props.finals);
         this.context.updatePerson('mods', mods);
+        }
+        if(prevProps.profession !== profession) {
+           if(prevProps.profession === 'Druid') this.context.cleanValue('languages');
+           if(profession === 'Druid') this.context.addValue('languages', 'Druidic');
         }
         if(prevState.classSkills !== atr.classSkills) {
             this.context.updatePerson('classSkills', atr.classSkills, data.class_char[profession].skills_pick - 1);
@@ -60,13 +71,17 @@ class ClassChar extends React.Component {
         if(prevState.spells !== atr.spells) {
             this.context.updatePerson('spells', atr.spells, data.class_char[profession].spells_pick - 1); 
         }
+        if(prevState.domain !== atr.domain) {
+            this.context.updatePerson('domain', atr.domain); 
+        }
+        if(prevState.deityTricks !== atr.deityTricks) {
+            this.context.updatePerson('deityTricks', atr.deityTricks); 
+        }
 
     }
 
     getValue(key, event) {
-        const data = event.target.value;
-        console.log(data)
-        this.setState({[key]: data});
+        this.setState({[key]: event}, this.handleData);
     }
 
     handleData() {
@@ -81,10 +96,28 @@ class ClassChar extends React.Component {
             if(prof === 'Bard' && atr.equip3 !== 0 && atr.instruments !== 0 && atr.spells !== 0 && atr.classTricks !== 0) {
                 this.props.buttonState('clicked');
             }
-
+            if((prof === 'Warlock') && atr.equip3 !== 0 && atr.spells !== 0 && atr.classTricks !== 0) {
+                this.props.buttonState('clicked');
+            }
+            if((prof === 'Druid') && atr.equip3 !== 0 && atr.classTricks !== 0) {
+                this.props.buttonState('clicked');
+            }
+            
         }
     }
 
+    setPatron(patron) {
+        let spells = [...data.class_char['Warlock'].spells];
+        if(patron === 'arcyfey') {
+            spells.push('Faerie Fire', 'Sleep')
+        } else if(patron === 'fiend') {
+            spells.push('Burning hands', 'Command')
+        } else {
+            spells.push('Bane', 'False life')
+        }
+        console.log(spells)
+        this.setState({warlock_spells: spells, warlock: true})
+    }
 
 
     render() {
@@ -102,7 +135,7 @@ class ClassChar extends React.Component {
             <div className="classAtr"><h2>Brave {this.context.person.name}!</h2>
             <h3>As {profession}:</h3>
             <p><strong>Your class proficiencies are:</strong> {data.class_char[profession].proficiency.toString()}</p>
-            <p>You have fighting proficiency in:</p>
+            <p><strong>You have fighting proficiency in:</strong></p>
                 <ul>
                     <li><strong>Armour:</strong> {data.class_char[profession].armor.toString()}</li>
                     <li><strong>Weapon:</strong> {data.class_char[profession].weapons.toString()}</li>
@@ -118,9 +151,19 @@ class ClassChar extends React.Component {
             <ClassSkills profession={this.props.profession} getValue={this.getValue}/>
             <Equip profession={this.props.profession} getValue={this.getValue}/>
             {(profession === 'Bard' || profession === 'Monk') && <Instruments profession={profession} getValue={this.getValue}/>}
-            {(profession === 'Bard') && <ClassTricks profession={profession} getValue={this.getValue}/>}
+            {(profession === 'Bard' || profession === 'Warlock' || profession === 'Druid' || profession === 'Cleric') && <ClassTricks profession={profession} mainpick={true} getValue={this.getValue}/>}
             {(profession === 'Bard') && <SpellsPick profession={profession} getValue={this.getValue}/>}
-            
+
+            {(profession === 'Warlock') &&
+                <div className="patrons">
+                    <h4>Pick Your Otherworldly Patron</h4>
+                    <Button variant="contained" color="secondary" onClick={()=>this.setPatron('arcyfey')}>Arcyfey</Button>
+                    <Button variant="contained" color="secondary" onClick={()=>this.setPatron('fiend')}>The Fiend</Button>
+                    <Button variant="contained" color="secondary" onClick={()=>this.setPatron('undead')}>The Undead</Button>
+                </div>
+            }
+            {(profession === 'Warlock' && this.state.warlock) && <SpellsPick profession={profession} getValue={this.getValue} spells={this.state.warlock_spells}/>}
+            {(profession === 'Cleric') && <Domain profession={profession} getValue={this.getValue}/>}
             </div>
             </>
         )

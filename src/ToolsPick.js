@@ -28,7 +28,7 @@ class ToolsPick extends React.Component {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}
-                    value={this.context.person.tools}
+                    value={this.context.person.tools[0]}
                 >
                       
                       {data.species_char[species].tools.map((tool,index) => (

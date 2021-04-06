@@ -122,7 +122,7 @@ class SpeciesChar extends React.Component {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}
-              
+                    value={this.context.person.alignment}
                 >
                       
                     {data.species_char[species].alignment.map((align,index) => (
