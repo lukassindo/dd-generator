@@ -8,6 +8,8 @@ import DataContext from './contexts/DataContext';
 import Fade from '@material-ui/core/Fade';
 import {data} from './data/data.js';
 import ClassTricks from './ClassTricks';
+import ProficiencyPick from './ProficiencyPick';
+import AddLang from './AddLang';
 
 class Domain extends React.Component {
 
@@ -20,9 +22,19 @@ class Domain extends React.Component {
 
     domainEffects(domain) {
         if(domain === 'Tempest') {
-            this.context.addValue('weapons','martial weapons','heavy armour','classSpells','Fog Cloud','Thunderwave');
+            this.context.addValue('armour','martial weapons','heavy armour','classSpells','Fog Cloud','Thunderwave');
         } else if (domain === 'Nature') {
-            this.context.addValue('classSpells','Animal Friendship','Speak with animals','weapons','heavy armour');
+            this.context.addValue('classSpells','Animal Friendship','Speak with animals','armour','heavy armour');
+        } else if (domain === 'Trickery') {
+            this.context.addValue('classSpells','Charm Person','Disguise Self');
+        } else if (domain === 'Light') {
+            this.context.addValue('classSpells','Burning Hands','Faerie Fire','classTricks','Light');
+        } else if (domain === 'Knowledge') {
+            this.context.addValue('classSpells','Identify','Command','classTricks','Light');
+        } else if (domain === 'War') {
+            this.context.addValue('classSpells','Divine Favor','Shield of Faith','armour','martial weapons','heavy armour');
+        } else if (domain === 'Life') {
+            this.context.addValue('classSpells','Cure Wounds','	Bless','armour','heavy armour');
         }
         this.props.getValue('domain', domain);
     }
@@ -34,7 +46,22 @@ class Domain extends React.Component {
     
 
     render() {
-        return (
+        const prof = this.props.profession;
+        const nature = (
+            <>
+            <ClassTricks profession={'Druid'} mainpick={false} getValue={this.getValue}/>
+            <ProficiencyPick profession={'Cleric'} getValue={this.getValue}/>
+            </>
+        )
+
+        const knowledge = (
+            <>
+            <ProficiencyPick profession={'Cleric'} getValue={this.getValue}/>
+            <AddLang profession={prof} getValue={this.getValue}/>
+            </>
+        )
+
+        return ( 
             <>
             <div className="spells pick">
                 <h4>As Cleric You have to choose one domain related to your deity</h4>   
@@ -53,7 +80,8 @@ class Domain extends React.Component {
                 }
                 </Select>
             </FormControl>
-            {(this.context.person.domain === 'Nature') && <ClassTricks profession={'Druid'} mainpick={false} getValue={this.getValue}/>}
+            {(this.context.person.domain === 'Nature') && nature}
+            {(this.context.person.domain === 'Knowledge') && knowledge}
            </div>
            
            </> 

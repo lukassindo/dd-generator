@@ -8,7 +8,7 @@ import DataContext from './contexts/DataContext';
 import Fade from '@material-ui/core/Fade';
 import {data} from './data/data.js';
 
-class ToolsPick extends React.Component {
+class AddLang extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -16,40 +16,30 @@ class ToolsPick extends React.Component {
 
     render() {
         const prof = this.props.profession;
-        const species = this.props.species;
         return (
             
             <>
-            <Fade in={true}>
-                
+            <h4>You can pick {data.class_char[prof].lang_pick} languages</h4>
              <FormControl className="classic" style={{marginTop: '16px'}}>
-                 <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Pick one artisan`s tool</InputLabel>
+                 <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Additional Language</InputLabel>
                 <Select 
-                    onChange={(e) => this.props.getValue('tools', e)}
+                    onChange={(e) => this.props.getValue('addLang', e.target.value)}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     style={{color: "#fff"}}
-            
-                >
-                      {(this.props.step === 4) ?
-                        data.species_char[species].tools.map((tool,index) => (
-                        <MenuItem  key={index} value={tool}>{tool}</MenuItem>
-                        )) :
-                        data.class_char[prof].tools.map((tool,index) => (
-                        <MenuItem  key={index} value={tool}>{tool}</MenuItem>
-                        )) 
-                        }
-                  
+                >   
+                      {data.class_char[prof].languages.map((lang,index) => (
+                        <MenuItem  key={index} value={lang}>{lang}</MenuItem>
+                    ))}
                 </Select>
             </FormControl>
-            </Fade>
+            {(this.context.person.addLang.length !== 0) && <h4>You've picked {this.context.person.addLang.toString()}</h4>}
            
            </> 
         )
     }
 
-
 }
 
-ToolsPick.contextType=DataContext;
-export default ToolsPick;
+AddLang.contextType=DataContext;
+export default AddLang;

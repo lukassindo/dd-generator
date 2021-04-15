@@ -89,7 +89,7 @@ export const data = {
              speed: '9m',
              basic_languages: 'Infernal & Common',
              proficiency: ['Darkvision - 18m', 'Hellish Resistance','Infernal Legacy','Stout Resilience'],
-             tricks: ['thaumaturgy'],
+             tricksStatic: ['thaumaturgy'],
          },
          'Dragonborn': {
              gender: ['female','male'],
@@ -105,7 +105,7 @@ export const data = {
              speed: '7,5m',
              basic_languages: 'Gnomish & Common',
              proficiency: ['Darkvision - 18m', 'Gnome Cunning','Natural Illusionist','Speak with Small Beasts'],
-             tricks: ['Minor Illusion']
+             tricksStatic: ['Minor Illusion']
          },
          'Rock Gnome': {
              gender: ['female','male'],
@@ -113,7 +113,7 @@ export const data = {
              speed: '7,5m',
              basic_languages: 'Gnomish & Common',
              proficiency: ['Darkvision - 18m', 'Gnome Cunning','Artificer’s Lore','Tinker'],
-             tools: ['tinker`s tools']
+             toolsStatic: ['tinker`s tools']
          },
          'Half-Orc': {
              gender: ['female','male'],
@@ -121,7 +121,7 @@ export const data = {
              speed: '9m',
              basic_languages: 'Orc & Common',
              proficiency: ['Darkvision - 18m', 'Menacing','Relentless Endurance','Savage Attacks'],
-             skills: ['Persuasion']
+             skillsStatic: ['Persuasion']
          },
          'Half-Elf': {
              gender: ['female','male'],
@@ -202,12 +202,22 @@ export const data = {
             saving_throws: ['Wisdom', 'Charisma'],
             skills_pick: 2,
             tricks_pick: 3,
+            lang_pick: 2,
             skills: ['empty','History', 'Insight', 'Medicine', 'Persuasion', 'Religion'],
             tools: [],
             equip: ['A shield and a holy symbol', ['(a) a mace', 'a warhammer (if proficient)'], ['(a) scale mail', '(b) leather armor', '(c) chain mail (if proficient)'], ['(a) a light crossbow and 20 bolts', '(b) any simple weapon'], ['(a) a priest’s pack', '(b) an explorer’s pack']],
             proficiency: ['Spellcasting','Divine Domain'],
             classTricks: ['empty','Mending','Resistance','Guidance','Light','Sacred Flame','Spare the Dying','Thaumaturgy'],
             domains: ['Knowledge','Life','Light','Nature','Tempest','Trickery','War'],
+            'Nature': {
+                pick: 1,
+                prof: ['Animal Handling','Nature','Survival'],
+            },
+            'Knowledge': {
+                pick: 2,
+                prof: ['Arcana','History','Nature','Religion'],
+            },
+            languages: ['Elvish','Dwarvish','Giant','Gnomish','Goblin','Halfling','Orc','Draconic', 'Infernal'],
         },
         'Rogue': {
             hit_dice: '1k8',
@@ -231,7 +241,9 @@ export const data = {
             skills: ['empty','Animal Handling', 'Athletics', 'Insight', 'Investigation', 'Nature', 'Perception', 'Stealth'],
             tools: [],
             equip: ['A longbow and a quiver of 20 arrows', ['(a) scale mail', 'leather armor'], ['(a)two shortswords', '(b) two simple melee weapons'], ['(a) a dungeoneer’s pack', '(b) an explorer’s pack']],
-            proficiency: ['Favored Enemy','Natural Explorer']
+            proficiency: ['Favored Enemy','Natural Explorer'],
+            enemy: ['aberrations','beasts','celestials','constructs','dragons','elementals','fey','fiends','giants'],
+            terrain: ['arctic','coast','desert','forest','grassland','mountain','swamp','underdark'],
         },
         'Wizard': {
             hit_dice: '1k6',
@@ -240,10 +252,14 @@ export const data = {
             weapons: ['Daggers', 'darts', 'slings', 'quarterstaffs', 'light crossbows'],
             saving_throws: ['Intelligence', 'Wisdom'],
             skills_pick: 2,
+            tricks_pick: 3,
+            spells_pick: 6,
             skills: ['empty','Arcana', 'History', 'Insight', 'Investigation', 'Medicine', 'Religion'],
             tools: [],
             equip: ['A spellbook', ['a quarterstaff', 'a dagger'], ['a component pouch', 'an arcane focus'], ['a scholar’s pack', 'an explorer’s pack']],
-            proficiency: ['Spellcasting','Arcane Recovery']
+            proficiency: ['Spellcasting','Arcane Recovery'],
+            classTricks: ['empty','Mending','Prestidigitation','Acid Splash','Mage Hand','Create Bonfire','Blade Ward','Minor Illusion','Shocking Grasp','True Strike','Ray of Frost','Chill Touch','Friends','Light','Dancing Lights','Poison Spray','Message'],
+            spells: ['empty','Alarm','Chromatic Orb','Expeditious Retreat','Fog Cloud','Thunderwave','False Life','Identify','Illusory Script','Color Spray','Magic Missile','Silent Image','Unseen Servant','Protection from Evil and Good','Tasha`s Hideous Laughter','Feather Fall','Burning Hands','Ray of Sickness','Disguise Self','Comprehend Languages','Jump','Longstrider','Shield','Grease','Sleep','Tenser`s Floating Disk','Witch Bolt','Detect Magic','Charm Person','Mage Armour','Find Familiar'],
         },
         'Monk': {
             hit_dice: '1k8',
@@ -253,15 +269,15 @@ export const data = {
             saving_throws: ['Strength', 'Dexterity'],
             skills_pick: 2,
             skills: ['empty','Acrobatics', 'Athletics', 'History', 'Insight', 'Religion','Stealth'],
-            instruments: ['empty','Bagpipes','Drum','Dulcimer','Flute','Lute','Lyre','Horn','Pan flute','Shawm','Viol'],
-            tools: ['empty','Alchemist’s supplies','Tinker’s tools','Glassblower’s tools','Jeweler’s tools','Brewer’s supplies','Smith’s tools','Cartographer’s tools','Mason’s tools','Calligrapher`s Supplies','Painter’s supplies','Potter’s tools','Carpenter’s tools','Cobbler’s tools','Leatherworker’s tools','Cook’s utensils','Weaver’s tools','Woodcarver’s tools'],
+            instruments: ['Bagpipes','Drum','Dulcimer','Flute','Lute','Lyre','Horn','Pan flute','Shawm','Viol'],
+            tools: ['Alchemist’s supplies','Tinker’s tools','Glassblower’s tools','Jeweler’s tools','Brewer’s supplies','Smith’s tools','Cartographer’s tools','Mason’s tools','Calligrapher`s Supplies','Painter’s supplies','Potter’s tools','Carpenter’s tools','Cobbler’s tools','Leatherworker’s tools','Cook’s utensils','Weaver’s tools','Woodcarver’s tools'],
             equip: ['10 darts', ['a shortsword', 'simple weapon'], ['a dungeoneer’s pack', 'an explorer’s pack']],
             proficiency: ['Unarmored Defense','Martial Arts']
         },
         'Paladin': {
             hit_dice: '1k10',
             hit_points: 10,
-            armor: ['All armor', 'All shields'],
+            armor: ['All armour', 'All shields'],
             weapons: ['Simple weapons, martial weapons'],
             saving_throws: ['Wisdom', 'Charisma'],
             skills_pick: 2,
@@ -273,7 +289,7 @@ export const data = {
         'Fighter': {
             hit_dice: '1k10',
             hit_points: 10,
-            armor: ['All armor', 'All shields'],
+            armor: ['All armour', 'All shields'],
             weapons: ['Simple weapons, martial weapons'],
             saving_throws: ['Strength', 'Constitution'],
             skills_pick: 2,
@@ -290,11 +306,15 @@ export const data = {
             weapons: ['Daggers', 'darts', 'slings', 'quarterstaffs', 'light crossbows'],
             saving_throws: ['Charisma', 'Constitution'],
             skills_pick: 2,
+            tricks_pick: 4,
+            spells_pick: 2,
             skills: ['empty','Arcana', 'Deception', 'Insight', 'Intimidation', 'Persuasion', 'Religion'],
             tools: [],
             equip: ['Two daggers', ['a light crossbow and 20 bolts', 'any simple weapon'], ['a component pouch', 'an arcane focus'], ['a dungeoneer’s pack', 'an explorer’s pack']],
             proficiency: ['Spellcasting','Sorcerous Origin - Draconic Bloodline', 'Sorcerous Origin - Wild Magic'],
             dragons: ['Black','Blue','Brass','Bronze','Copper','Gold','Green','Red','Silver','White'],
+            classTricks: ['Prestidigitation','Acid Splash','Mage Hand','Mending','Fire Bolt','Blade Ward','Minor Illusion','Shocking Grasp','True Strike','Ray of Frost','Chill Touch','Friends','Light','Dancing Lights','Poison Spray','Message'],
+            spells: ['Chromatic Orb','Expeditious Retreat','Fog Cloud','Thunderwave','False Life','Color Spray','Magic Missile','Silent Image','Feather Fall','Burning Hands','Ray of Sickness','Disguise Self','Comprehend Languages','Jump','Shield','Sleep','Witch Bolt','Detect Magic','Charm Person','Mage Armor'],
         },
     },
 }

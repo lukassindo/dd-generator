@@ -131,7 +131,7 @@ class SpeciesChar extends React.Component {
                 </Select>
                 {(this.props.species === 'Human' || this.props.species === 'High Elf' || this.props.species === 'Half-Elf') && <LanguagesPick getValue= {this.getValue} species = {this.props.species}/>}
                 {(this.props.species === 'High Elf') && <TrickPick getValue= {this.getValue} species = {this.props.species}/>}
-                {(this.props.species === 'Mountain Dwarf' || this.props.species === 'Hill Dwarf') && <ToolsPick getValue= {this.getValue} species = {this.props.species}/>}
+                {(this.props.species === 'Mountain Dwarf' || this.props.species === 'Hill Dwarf') && <ToolsPick getValue= {this.getValue}  profession={this.props.profession} step={this.props.currentStep} species = {this.props.species}/>}
                 {(this.props.species === 'Dragonborn') && <Dragons getValue= {this.getValue} species = {this.props.species}/>}
                 
             </FormControl>

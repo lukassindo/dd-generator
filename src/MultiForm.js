@@ -99,7 +99,7 @@ class MultiForm extends React.Component  {
             <Species  buttonState={this.handleButton} currentStep={this.state.currentStep} handleData = {this.handleUserData} />
             <Classes buttonState={this.handleButton} currentStep={this.state.currentStep} handleData = {this.handleUserData} />
             <Features buttonState={this.handleButton} species={this.state.species} profession={this.state.profession} currentStep={this.state.currentStep}/>
-            <SpeciesChar buttonState={this.handleButton} button={this.state.button} species={this.state.species} currentStep={this.state.currentStep}/>
+            <SpeciesChar buttonState={this.handleButton} button={this.state.button} profession={this.state.profession} species={this.state.species} currentStep={this.state.currentStep}/>
             <ClassChar finals={this.context.finalValues} profession={this.state.profession} buttonState={this.handleButton} button={this.state.button} species={this.state.species} currentStep={this.state.currentStep}/>
             <div className="buttons">
               {currentStep !== 1 && previousButton}

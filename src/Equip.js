@@ -8,19 +8,19 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
 import FormLabel from '@material-ui/core/FormLabel';
+import DataContext from './contexts/DataContext';
 
 class Equip extends React.Component {
     constructor(props) {
         super(props);
-
-
-
     }
 
 
     render() {
+        console.log(this.context);
         const profession = this.props.profession;
-        const equipment = data.class_char[profession].equip;
+       
+        console.log(this.state);
         const standard = (
             <>
                 <h3>Your equipment.</h3>
@@ -30,12 +30,17 @@ class Equip extends React.Component {
                             <p>You have {item} in your equipment. Pick the rest.</p>
                         )
                     } else {
+                        let eq;
+                        if(profession === 'Fighter') {
+                            eq = `equip${index+1}`;
+                        } else {eq = `equip${index}`;}
+                        
                         return (
                                 <FormControl component="fieldset">
                                     <FormLabel component="legend">Pick one from these:</FormLabel>
-                                    <RadioGroup aria-label="equipment" name={`equipment${index}`} onChange={(e)=> this.props.getValue(`equip${index}`,e.target.value)}>
+                                    <RadioGroup aria-label="equipment" name={eq} onChange={(e)=> this.props.getValue(eq, e.target.value)}>
                                         {item.map((el,i) => (
-                                            <FormControlLabel key={i} value={el} control={<Radio />} label={el}/>     
+                                            <FormControlLabel key={i}  value={el} control={<Radio />} label={el}/>     
                                         ))}
                                     </RadioGroup>   
                                 </FormControl>  
@@ -56,4 +61,5 @@ class Equip extends React.Component {
 
 }
 
+Equip.contextType=DataContext;
 export default Equip;
