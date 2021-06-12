@@ -15,11 +15,25 @@ class AddLang extends React.Component {
     
 
     render() {
+        const step = this.props.step;
         const prof = this.props.profession;
+        let lang;
+        let pick;
+
+
+        if (step === 6) {
+            pick = data.past[this.props.past];
+            lang =  this.context.person.past_lang;
+            console.log(pick);
+        } else {  
+            pick = data.class_char[prof]
+            lang =  this.context.person.addLang;
+        }
+        
         return (
             
             <>
-            <h4>You can pick {data.class_char[prof].lang_pick} languages</h4>
+            <h4>You can pick {pick.lang_pick} language(s)</h4>
              <FormControl className="classic" style={{marginTop: '16px'}}>
                  <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">Additional Language</InputLabel>
                 <Select 
@@ -28,12 +42,12 @@ class AddLang extends React.Component {
                     id="demo-simple-select"
                     style={{color: "#fff"}}
                 >   
-                      {data.class_char[prof].languages.map((lang,index) => (
+                      {pick.languages.map((lang,index) => (
                         <MenuItem  key={index} value={lang}>{lang}</MenuItem>
                     ))}
                 </Select>
             </FormControl>
-            {(this.context.person.addLang.length !== 0) && <h4>You've picked {this.context.person.addLang.toString()}</h4>}
+            {(lang.length !== 0) && <h4>You've picked {lang.toString()}</h4>}
            
            </> 
         )

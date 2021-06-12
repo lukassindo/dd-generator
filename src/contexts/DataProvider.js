@@ -48,6 +48,15 @@ class DataProvider extends React.Component {
                 terrain: '',
                 patron: '',
                 fight_style: '',
+                past: '',
+                past_lang: [],
+                past_instruments: [],
+                past_tools: [],
+                traits: '',
+                ideals: '',
+                bonds: '',
+                flaws: '',
+
             },
             update: this.updateState,
             updatePerson: this.addPersonData,
@@ -64,8 +73,6 @@ class DataProvider extends React.Component {
         let personData = {...this.state.person};
         let goodKey = personData[key];
         let len = goodKey.length;
-        console.log(key);
-        console.log(len);
         if (key === 'languages' || key === 'tricks' || key === 'tools' || key === 'dragons' || key === 'equip1' || key === 'equip2' || key === 'equip3' || key === 'equip4'  ) {
             if(len <= 1 && key !== 'languages' && key !== 'tools') {
                 goodKey.splice(0,1,value)
@@ -74,7 +81,7 @@ class DataProvider extends React.Component {
             } else {
                 goodKey.splice(1,2, value);
             } 
-        } else if (key === 'skills' || key === 'classSkills' || key === 'instruments' || key === 'classTricks' || key === 'spells' || key === 'deityProf' || key === 'addLang') {
+        } else if (key === 'skills' || key === 'classSkills' || key === 'instruments' || key === 'classTricks' || key === 'spells' || key === 'deityProf' || key === 'addLang' || key === 'past_lang') {
            
             if (value === 'empty') { goodKey.splice(0, goodKey.length)
             } else if(goodKey.length <= pick) {

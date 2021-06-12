@@ -17,6 +17,16 @@ class ToolsPick extends React.Component {
     render() {
         const prof = this.props.profession;
         const species = this.props.species;
+        const step = this.props.step;
+        let pick;
+        if (step === 6) {
+            pick = data.past[this.props.past].tools;
+        } else if (step === 4) {  
+            pick = data.species_char[species].tools;
+        } else {
+            pick = data.class_char[prof].tools;
+        }
+
         return (
             
             <>
@@ -31,14 +41,11 @@ class ToolsPick extends React.Component {
                     style={{color: "#fff"}}
             
                 >
-                      {(this.props.step === 4) ?
-                        data.species_char[species].tools.map((tool,index) => (
+                     
+                        {pick.map((tool,index) => (
                         <MenuItem  key={index} value={tool}>{tool}</MenuItem>
-                        )) :
-                        data.class_char[prof].tools.map((tool,index) => (
-                        <MenuItem  key={index} value={tool}>{tool}</MenuItem>
-                        )) 
-                        }
+                        )) }
+                       
                   
                 </Select>
             </FormControl>

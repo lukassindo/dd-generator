@@ -5,7 +5,7 @@ const modificator = (values) => {
    values.forEach(value => {
         for(let i = -5, b=1; i < 11; i ++) {
             if(value <= b) {
-                mods.push(i);
+                    mods.push(i);
                 break;
             }
             b += 2;

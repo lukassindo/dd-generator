@@ -7,8 +7,11 @@ import Classes from './Classes';
 import Features from './Features';
 import SpeciesChar from './SpeciesChar';
 import ClassChar from './ClassChar';
+import Past from './Past';
+import Sheet from './Sheet';
 import Button from '@material-ui/core/Button';
 import DataContext from './contexts/DataContext';
+
 
 class MultiForm extends React.Component  {
   constructor(props) {
@@ -27,6 +30,7 @@ class MultiForm extends React.Component  {
     this.prev = this.prev.bind(this);
     this.handleButton = this.handleButton.bind(this);
     this.checkButtons = this.checkButtons.bind(this);
+    this.lastStep = this.lastStep.bind(this);
   }
 
  handleUserData(key, value) {
@@ -34,6 +38,9 @@ class MultiForm extends React.Component  {
  }
  handleButton(childData) {
    if(childData === "clicked") this.setState({button:false}) 
+ }
+ lastStep() {
+   this.setState({currentStep:7})
  }
 
  prev() {
@@ -51,7 +58,7 @@ class MultiForm extends React.Component  {
  next() {
     let currentStep = this.state.currentStep
     // If the current step is 1 or 2, then add one on "next" button click
-    currentStep = currentStep >= 5 ? 6: currentStep + 1
+    currentStep = currentStep >= 6 ? 7: currentStep + 1
     this.setState({
       currentStep: currentStep,
       button: true
@@ -92,7 +99,7 @@ class MultiForm extends React.Component  {
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <h1>Your Character Generator</h1>
+            {(currentStep !== 7) && <h1>Your Character Generator</h1>}
           </header>
           <main>
           {}
@@ -101,6 +108,10 @@ class MultiForm extends React.Component  {
             <Features buttonState={this.handleButton} species={this.state.species} profession={this.state.profession} currentStep={this.state.currentStep}/>
             <SpeciesChar buttonState={this.handleButton} button={this.state.button} profession={this.state.profession} species={this.state.species} currentStep={this.state.currentStep}/>
             <ClassChar finals={this.context.finalValues} profession={this.state.profession} buttonState={this.handleButton} button={this.state.button} species={this.state.species} currentStep={this.state.currentStep}/>
+            <Past profession={this.state.profession} lastStep = {this.lastStep} button={this.state.button} species={this.state.species} currentStep={this.state.currentStep}/>
+            
+             {(currentStep === 7) && <Sheet currentStep={this.state.currentStep} profession={this.state.profession} species={this.state.species}/>}
+            
             <div className="buttons">
               {currentStep !== 1 && previousButton}
               {currentStep < 6 && nextButton } 

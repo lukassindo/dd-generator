@@ -12,26 +12,35 @@ class Instruments extends React.Component {
     }
 
     render() {
-        const profession = this.props.profession;
+        const prof = this.props.profession;
+        const step = this.props.step;
+        let instr;
+        let pick;
+        if (step === 6) {
+            pick = data.past[this.props.past].instruments;
+            instr =  this.context.person.past_instruments;
+        } else {  
+            pick = data.class_char[prof].instruments;
+            instr =  this.context.person.instruments;
+        }
         return (
             <div className="instruments pick">
-               {profession === "Bard" && <h4>You are musician! Pick your three best instruments</h4>}
+               {(prof === "Bard" && step !== 6) && <h4>You are musician! Pick your three best instruments</h4>}
                 <FormControl className="classic" style={{marginTop: '16px'}}>
-                    <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">{profession === 'Bard' ? 'Pick three instruments' : 'Pick one instrument'}</InputLabel>
+                    <InputLabel style={{color: "#fff"}} id="demo-simple-select-label">{(prof === 'Bard' && step !== 6) ? 'Pick three instruments' : 'Pick one instrument'}</InputLabel>
                     <Select 
                         onChange={(e) => this.props.getValue('instruments', e.target.value)}
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         style={{color: "#fff"}}
-                    
                     >
                         
-                        {data.class_char[profession].instruments.map((tool,index) => (
+                        {pick.map((tool,index) => (
                         <MenuItem  key={index} value={tool}>{tool}</MenuItem>
                     ))}
                 </Select>
                 </FormControl>
-                {(this.context.person.instruments.length !== 0) && <h4>You've picked {this.context.person.instruments.toString()}</h4>}
+                {(instr.length !== 0) && <h4>You've picked {instr.toString()}</h4>}
             </div>
         )
     }

@@ -20,82 +20,91 @@ export const data = {
             gender: ['female','male'],
             alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
             speed: '9m',
-            basic_languages: 'Common',
+            basic_languages: ['Common'],
             languages: ['Elvish','Dwarvish','Giant','Gnomish','Goblin','Halfling','Orc','Draconic', 'Infernal'],
             proficiency: [],
+            skillsStatic: [],
         },
         'Forest Elf': {
              gender: ['female','male'],
              alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral'],
              speed: '10,5m',
-             basic_languages: 'Elvish & Common',
+             basic_languages: ['Elvish & Common'],
              proficiency: ['Darkvision - 18m','Fey Ancestry', 'Trance','Mask of the Wild', 'Martial Arts'],
              weapons: ['shortbow', 'longbow', 'long sword', 'short sword'],
+             skillsStatic: ['Perception']
          },
          'High Elf': {
              gender: ['female','male'],
              alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral'],
              speed: '9m',
-             basic_languages: 'Elvish & Common',
+             basic_languages: ['Elvish & Common'],
              proficiency: ['Darkvision - 18m','Fey Ancestry', 'Trance','Magic Trick', 'Martial Arts'],
              languages: ['Dwarvish','Giant','Gnomish','Goblin','Halfling','Orc','Draconic', 'Infernal'],
              weapons: ['shortbow', 'longbow', 'long sword', 'short sword'],
-             tricks: ['Dancing Lights','Light', 'Mage Hand', 'Message','Mending','Resistance','Acid Splash','Ray of Frost','Fire Bolt','Minor Illusion','Shocking Grasp','True Strike','Poison Spray','Prestidigitation','Chill Touch','Friendship']
+             tricks: ['Dancing Lights','Light', 'Mage Hand', 'Message','Mending','Resistance','Acid Splash','Ray of Frost','Fire Bolt','Minor Illusion','Shocking Grasp','True Strike','Poison Spray','Prestidigitation','Chill Touch','Friendship'],
+             skillsStatic: ['Perception'],
          },
          'Drow - Dark Elf': {
              gender: ['female','male'],
              alignment: ['Lawful evil','Neutral evil','Chaotic evil'],
              speed: '9m',
-             basic_languages: 'Elvish & Common',
+             basic_languages: ['Elvish & Common'],
              proficiency: ['Superior Darkvision - 36m','Fey Ancestry', 'Trance','Sunlight Sensitivity','Drow Magic', 'Drow Weapon Training'],
              weapons: ['rapier', 'hand crossbow', 'short sword'],
              tricks: ['Dancing Lights'],
+             skillsStatic: ['Perception'],
          },
          'Mountain Dwarf': {
              gender: ['female','male'],
              alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
              speed: '7,5m',
-             basic_languages: 'Dwarvish & Common',
+             basic_languages: ['Dwarvish & Common'],
              proficiency: ['Darkvision - 18m','Dwarven Resilience', 'Dwarven Combat Training','Stonecunning', 'Dwarven Armor Training', 'Tool Proficiency'],
              weapons: ['battleaxe','handaxe','light hammer','warhammer','light armor','medium armor'],
-             tools: ['smith’s tools','brewer’s supplies','mason’s tools']
+             tools: ['smith’s tools','brewer’s supplies','mason’s tools'],
+             skillsStatic: []
          },
          'Hill Dwarf': {
              gender: ['female','male'],
              alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
              speed: '7,5m',
-             basic_languages: 'Dwarvish & Common',
+             basic_languages: ['Dwarvish & Common'],
              proficiency: ['Darkvision - 18m','Dwarven Resilience', 'Dwarven Combat Training','Stonecunning', 'Dwarven Toughness','Tool Proficiency'],
              weapons: ['battleaxe','handaxe','light hammer','warhammer'],
-             tools: ['smith’s tools','brewer’s supplies','mason’s tools']
+             tools: ['smith’s tools','brewer’s supplies','mason’s tools'],
+             skillsStatic: []
          },
          'Halfling - Lightfoot': {
              gender: ['female','male'],
              alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
              speed: '7,5m',
-             basic_languages: 'Halfling & Common',
+             basic_languages: ['Halfling & Common'],
              proficiency: ['Lucky', 'Brave','Halfling Nimbleness','Naturally Stealthy'],
+             skillsStatic: []
          },
          'Halfling - Stout': {
              gender: ['female','male'],
              alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
              speed: '7,5m',
-             basic_languages: 'Halfling & Common',
+             basic_languages: ['Halfling & Common'],
              proficiency: ['Lucky', 'Brave','Halfling Nimbleness','Stout Resilience'],
+             skillsStatic: []
          },
          'Tiefling': {
              gender: ['female','male'],
              alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
              speed: '9m',
-             basic_languages: 'Infernal & Common',
+             basic_languages: ['Infernal & Common'],
              proficiency: ['Darkvision - 18m', 'Hellish Resistance','Infernal Legacy','Stout Resilience'],
              tricksStatic: ['thaumaturgy'],
+             skillsStatic: []
          },
          'Dragonborn': {
              gender: ['female','male'],
              alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
              speed: '9m',
-             basic_languages: 'Draconic & Common',
+             basic_languages: ['Draconic & Common'],
              proficiency: ['Draconic Ancestry', 'Breath Weapon','Damage Resistance'],
              dragons: ['Black','Blue','Brass','Bronze','Copper','Gold','Green','Red','Silver','White'],
          },
@@ -103,23 +112,25 @@ export const data = {
              gender: ['female','male'],
              alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
              speed: '7,5m',
-             basic_languages: 'Gnomish & Common',
+             basic_languages: ['Gnomish & Common'],
              proficiency: ['Darkvision - 18m', 'Gnome Cunning','Natural Illusionist','Speak with Small Beasts'],
-             tricksStatic: ['Minor Illusion']
+             tricksStatic: ['Minor Illusion'],
+             skillsStatic: []
          },
          'Rock Gnome': {
              gender: ['female','male'],
              alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
              speed: '7,5m',
-             basic_languages: 'Gnomish & Common',
+             basic_languages: ['Gnomish & Common'],
              proficiency: ['Darkvision - 18m', 'Gnome Cunning','Artificer’s Lore','Tinker'],
-             toolsStatic: ['tinker`s tools']
+             toolsStatic: ['tinker`s tools'],
+             skillsStatic: []
          },
          'Half-Orc': {
              gender: ['female','male'],
              alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
              speed: '9m',
-             basic_languages: 'Orc & Common',
+             basic_languages: ['Orc & Common'],
              proficiency: ['Darkvision - 18m', 'Menacing','Relentless Endurance','Savage Attacks'],
              skillsStatic: ['Persuasion']
          },
@@ -127,10 +138,11 @@ export const data = {
              gender: ['female','male'],
              alignment: ['Lawful good','Neutral good','Chaotic good','Lawful neutral','(True) neutral','Chaotic neutral','Lawful evil','Neutral evil','Chaotic evil'],
              speed: '9m',
-             basic_languages: 'Orc & Common',
+             basic_languages: ['Elvish & Common'],
              proficiency: ['Darkvision - 18m', 'Fey Ancestry','Skill Versatility','Savage Attacks'],
              languages: ['Dwarvish','Giant','Gnomish','Goblin','Halfling','Orc','Draconic', 'Infernal'],
-             skills: ['empty','Athletics','Acrobatics','Sleight of Hand','Stealth','Arcana','History','Investigation','Nature','Religion','Animal Handling','Insight','Medicine','Perception','Survival','Deception','Intimidation','Performance','Persuasion']
+             skills: ['empty','Athletics','Acrobatics','Sleight of Hand','Stealth','Arcana','History','Investigation','Nature','Religion','Animal Handling','Insight','Medicine','Perception','Survival','Deception','Intimidation','Performance','Persuasion'],
+             skillsStatic: []
          }
     },
     class_char: {
@@ -217,7 +229,7 @@ export const data = {
                 pick: 2,
                 prof: ['Arcana','History','Nature','Religion'],
             },
-            languages: ['Elvish','Dwarvish','Giant','Gnomish','Goblin','Halfling','Orc','Draconic', 'Infernal'],
+            languages: ['empty','Elvish','Dwarvish','Giant','Gnomish','Goblin','Halfling','Orc','Draconic', 'Infernal'],
         },
         'Rogue': {
             hit_dice: '1k8',
@@ -316,7 +328,89 @@ export const data = {
             classTricks: ['Prestidigitation','Acid Splash','Mage Hand','Mending','Fire Bolt','Blade Ward','Minor Illusion','Shocking Grasp','True Strike','Ray of Frost','Chill Touch','Friends','Light','Dancing Lights','Poison Spray','Message'],
             spells: ['Chromatic Orb','Expeditious Retreat','Fog Cloud','Thunderwave','False Life','Color Spray','Magic Missile','Silent Image','Feather Fall','Burning Hands','Ray of Sickness','Disguise Self','Comprehend Languages','Jump','Shield','Sleep','Witch Bolt','Detect Magic','Charm Person','Mage Armor'],
         },
+
     },
+    past: {
+        'Acolyte' :{
+            proficiency: ['Insight', 'Religion'],
+            lang_pick: 2,
+            languages: ['empty','Elvish','Dwarvish','Giant','Gnomish','Goblin','Halfling','Orc'],
+            equip: ['a holy symbol','a prayer book or prayer wheel','5 sticks of incense','vestments','set of common clothes','pouch containing 15 gp'],
+        },
+        'Entertainer': {
+            proficiency: ['Acrobatics', 'Performance'],
+            tool_prof: ['Disguise Kit'],
+            instruments: ['Bagpipes','Drum','Dulcimer','Flute','Lute','Lyre','Horn','Pan flute','Shawm','Viol'],
+            equip: ['the favor of an admirer (love letter, lock of hair, or trinket)','a costume','pouch containing 15 gp'],
+        },
+        'Folk Hero': {
+            proficiency: ['Animal Handling', 'Survival'],
+            tools: ['smith’s tools','brewer’s supplies','mason’s tools'],
+            tool_prof: ['vehicles (land)'],
+            equip: ['a shovel','an iron pot','a set of common clothes','a belt pouch containing 10 gp'],
+        },
+        'Sailor': {
+            proficiency: ['Athletics', 'Perception'],
+            tool_prof: ['Navigator`s tools','vehicles (water)'],
+            equip: ['A belaying pin (club)','50 feet of silk rope','a lucky charm','a set of common clothes','a belt pouch containing 10 gp'],
+        },
+        'Sage': {
+            proficiency: ['Arcana', 'History'],
+            lang_pick: 2,
+            languages: ['empty','Elvish','Dwarvish','Giant','Gnomish','Goblin','Halfling','Orc'],
+            equip: ['A belaying pin (club)','50 feet of silk rope','a lucky charm','a set of common clothes','a belt pouch containing 10 gp'],
+        },
+        'Outlander': {
+            proficiency: ['Survival', 'Athletics'],
+            lang_pick: 1,
+            languages: ['empty','Elvish','Dwarvish','Giant','Gnomish','Goblin','Halfling','Orc'],
+            instruments: ['Bagpipes','Drum','Dulcimer','Flute','Lute','Lyre','Horn','Pan flute','Shawm','Viol'],
+            equip: ['A staff','a hunting trap','a trophy from an animal you killed','a set of traveler`s clothes','a belt pouch containing 10 gp'],
+        },
+        'Criminal / Spy': {
+            proficiency: ['Deception', 'Stealth'],
+            tool_prof: ['One type of gaming set','thieves’ tools'],
+            equip: ['A crowbar','a set of dark common clothes including a hood','a pouch containing 15 gp'],
+        },
+        'Hermit': {
+            proficiency: ['Medicine', 'Religion'],
+            lang_pick: 1,
+            languages: ['empty','Elvish','Dwarvish','Giant','Gnomish','Goblin','Halfling','Orc'],
+            tool_prof: ['Herbalism Kit'],
+            equip: ['A Winter Blanket','5gp','a Set of common clothes','a herbalism kit','A scroll case stuffed full of notes from your studies or prayers'],
+        },
+        'Guild Artisan': {
+            proficiency: ['Insight', 'Persuasion'],
+            lang_pick: 1,
+            languages: ['empty','Elvish','Dwarvish','Giant','Gnomish','Goblin','Halfling','Orc'],
+            tools: ['smith’s tools','brewer’s supplies','mason’s tools'],
+            equip: ['A set of artisan`s tools (one of your choice)','a letter of introduction from your guild','a set of traveler`s clothes','a belt pouch containing 15gp'],
+        },
+        'Charlatan': {
+            proficiency: ['Deception', 'Sleight of Hand'],
+            tool_prof: ['Disguise kit', 'forgery kit'],
+            equip: ['A set of fine clothes','a disguise kit','tools of the con of your choice (ten stoppered bottles filled with colored liquid, a set of weighted dice, a deck of marked cards, or a signet ring of an imaginary duke)','a belt pouch containing 15gp'],
+        },
+        'Noble': {
+            proficiency: ['History', 'Persuasion'],
+            lang_pick: 1,
+            languages: ['empty','Elvish','Dwarvish','Giant','Gnomish','Goblin','Halfling','Orc'],
+            tool_prof: ['One type of gaming set'],
+            equip: ['A set of fine clothes','a signet ring','a scroll of pedigree','a purse containing 25gp'],
+        },
+        'Urchin': {
+            proficiency: ['Sleight of Hand', 'Stealth'],
+            tool_prof: ['Disguise kit','thieves` tools'],
+            equip: ['A small knife','a map of the city you grew up in','a pet mouse','a token to remember your parents by','a set of common clothes','a belt pouch containing 10gp'],
+        },
+        'Soldier': {
+            proficiency: ['Athletics', 'Intimidation'],
+            tool_prof: ['one type of gaming set','vehicles (land)'],
+            equip: ['An insignia of rank','a trophy taken from a fallen enemy (a dagger, broken blade, or piece of a banner)','a set of bone dice or deck of cards','a set of common clothes','a pouch containing 10 gp'],
+        },
+
+
+    }
 }
 
 export default data;

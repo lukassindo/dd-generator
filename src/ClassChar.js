@@ -174,8 +174,8 @@ class ClassChar extends React.Component {
         } else {
             spells.push('Bane', 'False life')
         }
-        console.log(spells)
-        this.setState({warlock_spells: spells, warlock: true, patron})
+        
+        this.setState({warlock_spells: spells, warlock: true, patron}, this.handleData)
     }
 
     setChoice(choice) {
@@ -189,8 +189,8 @@ class ClassChar extends React.Component {
     }
 
     render() {
-        console.log(this.context.person);
-        console.log(this.props.currentStep);
+        
+        console.log(this.state);
         const profession = this.props.profession;
   
         if (this.props.currentStep !== 5) { 
@@ -213,10 +213,9 @@ class ClassChar extends React.Component {
           
             <p>Your HitDice is: {data.class_char[profession].hit_dice}</p>
             <p>Your current Hit Points are: {data.class_char[profession].hit_points + this.context.person.mods[2]}</p>
-            {/* <h4>As {this.props.profession} You can pick {data.class_char[profession].skills_pick} skills from the list</h4>   */}
             <ClassSkills profession={this.props.profession} getValue={this.getValue}/>
             <Equip profession={this.props.profession} getValue={this.getValue}/>
-            {(profession === 'Bard') && <Instruments profession={profession} getValue={this.getValue}/>}
+            {(profession === 'Bard') && <Instruments profession={profession} getValue={this.getValue} step={this.props.currentStep}/>}
             {(profession === 'Bard' || profession === 'Warlock' || profession === 'Druid' || profession === 'Cleric' || profession === 'Wizard' || profession === 'Sorcerer') && <ClassTricks profession={profession} mainpick={true} getValue={this.getValue}/>}
             {(profession === 'Bard' || profession === 'Wizard' || profession === 'Sorcerer') && <SpellsPick profession={profession} getValue={this.getValue}/>}
 
@@ -229,7 +228,7 @@ class ClassChar extends React.Component {
                 </div>
             }
             {(profession === 'Warlock' && this.state.warlock) && <SpellsPick profession={profession} getValue={this.getValue} spells={this.state.warlock_spells}/>}
-            {(profession === 'Cleric') && <Domain profession={profession} getValue={this.getValue}/>}
+            {(profession === 'Cleric') && <Domain profession={profession} getValue={this.getValue} step={this.props.currentStep}/>}
             {(profession === 'Ranger') && <div><Ranger profession={profession} getValue={this.getValue}/></div>}
             {(profession === 'Monk') &&
                 <div className="patrons">

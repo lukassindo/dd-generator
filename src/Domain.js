@@ -57,7 +57,7 @@ class Domain extends React.Component {
         const knowledge = (
             <>
             <ProficiencyPick profession={'Cleric'} getValue={this.getValue}/>
-            <AddLang profession={prof} getValue={this.getValue}/>
+            <AddLang profession={prof} getValue={this.getValue} step = {this.props.step}/>
             </>
         )
 
