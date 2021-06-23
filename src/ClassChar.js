@@ -203,7 +203,7 @@ class ClassChar extends React.Component {
             <p><strong>Your class proficiencies are:</strong> {data.class_char[profession].proficiency.toString()}</p>
             <p><strong>You have fighting proficiency in:</strong></p>
                 <ul>
-                    <li><strong>Armour:</strong> {data.class_char[profession].armor.toString()}</li>
+                    {(data.class_char[profession].armor.length > 0) && <li><strong>Armour:</strong> {data.class_char[profession].armor.toString()}</li>}
                     <li><strong>Weapon:</strong> {data.class_char[profession].weapons.toString()}</li>
                     {(profession !== 'Bard' && profession !== 'Monk') && data.class_char[profession].tools.length !== 0 ?
                     <p><strong>You have tools proficiency in:</strong> {data.class_char[profession].tools.toString()}</p>

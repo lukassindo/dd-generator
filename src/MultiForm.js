@@ -11,6 +11,8 @@ import Past from './Past';
 import Sheet from './Sheet';
 import Button from '@material-ui/core/Button';
 import DataContext from './contexts/DataContext';
+import ReactToPrint , { PrintContextConsumer }  from 'react-to-print';
+
 
 
 class MultiForm extends React.Component  {
@@ -110,10 +112,28 @@ class MultiForm extends React.Component  {
             <ClassChar finals={this.context.finalValues} profession={this.state.profession} buttonState={this.handleButton} button={this.state.button} species={this.state.species} currentStep={this.state.currentStep}/>
             <Past profession={this.state.profession} lastStep = {this.lastStep} button={this.state.button} species={this.state.species} currentStep={this.state.currentStep}/>
             
-             {(currentStep === 7) && <Sheet currentStep={this.state.currentStep} profession={this.state.profession} species={this.state.species}/>}
-            
+             {(currentStep === 7) && 
+              <Sheet ref={el => (this.componentRef = el)} currentStep={this.state.currentStep} profession={this.state.profession} species={this.state.species}/> }
+             {(currentStep === 7) && 
+             <ReactToPrint content={() => this.componentRef}>
+              <PrintContextConsumer>
+                {({ handlePrint }) => (
+                  <Button 
+                  className="print"
+                  onClick={handlePrint}
+                  variant="contained" 
+                  color="secondary"
+                  >Print this out!
+                  </Button>
+                )}
+              </PrintContextConsumer>
+            </ReactToPrint>
+            }
+            {/* {(currentStep === 7) && 
+            <Test currentStep={this.state.currentStep} profession={this.state.profession} species={this.state.species} ref={el => (this.componentRef = el)} />
+            } */}
             <div className="buttons">
-              {currentStep !== 1 && previousButton}
+              {(currentStep !== 1 && currentStep < 7) && previousButton}
               {currentStep < 6 && nextButton } 
             </div>
           </main>

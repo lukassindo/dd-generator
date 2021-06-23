@@ -94,7 +94,6 @@ class Past extends React.Component {
                     label="Your Personality Traits"
                     multiline
                     rows={5}
-                    defaultValue="Personality Traits"
                     onChange={(e) => this.getValue('traits', e.target.value)}
                 />
                 <TextField
@@ -102,15 +101,13 @@ class Past extends React.Component {
                     label="Your Ideals"
                     multiline
                     rows={5}
-                    defaultValue="Your Ideals"
                     onChange={(e) => this.getValue('ideals', e.target.value)}
                 />
                 <TextField
                     id="standard-multiline-static"
-                    label="Your Bonds"
+                    label="Your life bonds"
                     multiline
                     rows={5}
-                    defaultValue="Your life bonds"
                     onChange={(e) => this.getValue('bonds', e.target.value)}
                 />
                 <TextField
@@ -118,7 +115,6 @@ class Past extends React.Component {
                     label="Your Flaws"
                     multiline
                     rows={5}
-                    defaultValue="Show some of Your Flaws. That will give depth to Your character"
                     onChange={(e) => this.getValue('flaws', e.target.value)}
                 />
 
