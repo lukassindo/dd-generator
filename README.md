@@ -1,4 +1,4 @@
-# In process of creating Dungeons & Dragons 5th edition character generator by React.
+# Dungeons & Dragons 5th edition character generator by React.
 See actual state of app here: https://lukassindo.github.io/dd-generator/
 
 
