@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/dd-generator/static/css/main.e9afbdec.chunk.css",
-    "main.js": "/dd-generator/static/js/main.98a92bd3.chunk.js",
-    "main.js.map": "/dd-generator/static/js/main.98a92bd3.chunk.js.map",
+    "main.css": "/dd-generator/static/css/main.31782907.chunk.css",
+    "main.js": "/dd-generator/static/js/main.3617cf3a.chunk.js",
+    "main.js.map": "/dd-generator/static/js/main.3617cf3a.chunk.js.map",
     "runtime-main.js": "/dd-generator/static/js/runtime-main.aedf202c.js",
     "runtime-main.js.map": "/dd-generator/static/js/runtime-main.aedf202c.js.map",
     "static/css/2.4b672740.chunk.css": "/dd-generator/static/css/2.4b672740.chunk.css",
@@ -12,17 +12,31 @@
     "static/js/3.42fd5f54.chunk.js.map": "/dd-generator/static/js/3.42fd5f54.chunk.js.map",
     "index.html": "/dd-generator/index.html",
     "static/css/2.4b672740.chunk.css.map": "/dd-generator/static/css/2.4b672740.chunk.css.map",
-    "static/css/main.e9afbdec.chunk.css.map": "/dd-generator/static/css/main.e9afbdec.chunk.css.map",
+    "static/css/main.31782907.chunk.css.map": "/dd-generator/static/css/main.31782907.chunk.css.map",
     "static/js/2.73ef2898.chunk.js.LICENSE.txt": "/dd-generator/static/js/2.73ef2898.chunk.js.LICENSE.txt",
     "static/media/App.css": "/dd-generator/static/media/sheet.66fa2feb.png",
+    "static/media/dark-elf.6fc04cf4.png": "/dd-generator/static/media/dark-elf.6fc04cf4.png",
     "static/media/dd.aa28a64d.png": "/dd-generator/static/media/dd.aa28a64d.png",
-    "static/media/index.css": "/dd-generator/static/media/roboto-vietnamese-400-normal.52cebac0.woff2"
+    "static/media/dragonborn.7bfe139f.png": "/dd-generator/static/media/dragonborn.7bfe139f.png",
+    "static/media/dwarf.2007b7d3.png": "/dd-generator/static/media/dwarf.2007b7d3.png",
+    "static/media/elf.5869b2dd.png": "/dd-generator/static/media/elf.5869b2dd.png",
+    "static/media/forest-elf.669bb50c.png": "/dd-generator/static/media/forest-elf.669bb50c.png",
+    "static/media/gnome.bbe12deb.png": "/dd-generator/static/media/gnome.bbe12deb.png",
+    "static/media/half-elf.2319491a.png": "/dd-generator/static/media/half-elf.2319491a.png",
+    "static/media/half-orc.ad5987b3.png": "/dd-generator/static/media/half-orc.ad5987b3.png",
+    "static/media/halfling-stout.2493a2b8.png": "/dd-generator/static/media/halfling-stout.2493a2b8.png",
+    "static/media/halfling.c2a0f255.png": "/dd-generator/static/media/halfling.c2a0f255.png",
+    "static/media/human.1be52bce.png": "/dd-generator/static/media/human.1be52bce.png",
+    "static/media/mountain-dwarf.f06703b6.png": "/dd-generator/static/media/mountain-dwarf.f06703b6.png",
+    "static/media/index.css": "/dd-generator/static/media/roboto-vietnamese-400-normal.52cebac0.woff2",
+    "static/media/rock-gnome.a9d06965.png": "/dd-generator/static/media/rock-gnome.a9d06965.png",
+    "static/media/tiefling.c1ff1d0d.png": "/dd-generator/static/media/tiefling.c1ff1d0d.png"
   },
   "entrypoints": [
     "static/js/runtime-main.aedf202c.js",
     "static/css/2.4b672740.chunk.css",
     "static/js/2.73ef2898.chunk.js",
-    "static/css/main.e9afbdec.chunk.css",
-    "static/js/main.98a92bd3.chunk.js"
+    "static/css/main.31782907.chunk.css",
+    "static/js/main.3617cf3a.chunk.js"
   ]
 }
