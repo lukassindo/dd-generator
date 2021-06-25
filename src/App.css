@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "Draconis";
+  src: local("Draconis"),
+  url("./fonts/Draconis.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Draconis Bold";
+  src: local("DraconisBold"),
+  url("./fonts/DraconisBold.ttf") format("truetype");
+  font-weight: bold;  
+}
+
+
+
 .App {
   text-align: center;
   height: 100vh;
@@ -9,6 +23,49 @@
   pointer-events: none;
 }
 ul {list-style: none;}
+
+.species_boxes {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem 4rem;
+  justify-content: center;
+}
+
+.species_box {
+  width: 240px;
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #CC2229;
+  border-radius: 5px;
+  margin: 5px 8px;
+  background: #fff;
+  position: relative;
+  cursor: pointer;
+  flex-basis: 16%;
+}
+.species_box p {
+  color: #CC2229;
+  position: absolute;
+  max-width: 135px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0.6rem;
+  text-align: left;
+  z-index: 1;
+  font-family: 'Draconis Bold';
+}
+.species_img {
+  object-fit: contain;
+  max-width: 240px;
+  max-height: 240px;
+  position: absolute;
+  left: -29px;
+  transition: transform 0.2s ease-in;
+}
+.species_box:hover > img {
+  transform: scale(1.2);
+}
 .patrons button {
   margin: 3px 10px;
 }
@@ -35,6 +92,7 @@ ul {list-style: none;}
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 0 20px;
 }
 .App-header {
   padding-top: 70px;
@@ -114,6 +172,10 @@ form.charData input {
 .createSheet {margin-top: 20px !important}
 
 /* Character Sheet */
+/* .page-container {
+  max-width: 100%;
+  overflow-x: auto;
+} */
 .leftColumn {
   flex-grow: 3;
   position: absolute;
@@ -691,4 +753,43 @@ span.right::after {
 }
 .print {
   margin-bottom: 40px !important;
+}
+
+@media screen and (max-width: 1400px) {
+  .species_box {
+    flex-basis: 19%
+  }
+  .species_img {left: -2px;}
+}
+
+@media screen and (max-width: 1300px) {
+  .species_box {
+    flex-basis: 23%
+  }
+  .species_img {left: 22px;}
+}
+@media screen and (max-width: 1199px) {
+  .species_img {left: -6px;}
+}
+@media screen and (max-width: 1000px) {
+  .species_box {
+    flex-basis: 31%
+  }
+  .species_img {left: 14px;}
+}
+@media screen and (max-width: 768px) {
+  .species_box {
+    flex-basis: 50%
+  }
+  .species_img {left: unset;right: 0;}
+}
+@media screen and (max-width: 550px) {
+  .species_box {
+    flex-basis: 100%
+  }
+  .species_boxes {padding: 0 10px;}
+  .species_box p {font-size: 27px;}
+  .MuiFormControl-root.MuiTextField-root {
+    min-width: 253px;
+  }
 }

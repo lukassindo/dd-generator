@@ -87,6 +87,7 @@ class Sheet extends React.Component {
         console.log(allTricks.length);
         console.log(allSpells.length);
         return (
+            <div className="page-container">
             <Document>
             <Page 
             size="A4" 
@@ -394,6 +395,7 @@ class Sheet extends React.Component {
                     
                 </Page>
             </Document>
+            </div>
         );
     }
 }

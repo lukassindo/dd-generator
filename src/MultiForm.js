@@ -73,6 +73,7 @@ class MultiForm extends React.Component  {
  }
 
   render () {
+    console.log(this.state.species);
     let currentStep = this.state.currentStep;
     const previousButton = (
       <Button className="previous" style={{color:"#fff", borderColor: "#fff"}}
