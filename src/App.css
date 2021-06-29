@@ -54,6 +54,7 @@ ul {list-style: none;}
   text-align: left;
   z-index: 1;
   font-family: 'Draconis Bold';
+  transition: font-size 0.2s ease-in, max-width 0.2s ease-in ;
 }
 .species_img {
   object-fit: contain;
@@ -65,6 +66,19 @@ ul {list-style: none;}
 }
 .species_box:hover > img {
   transform: scale(1.2);
+}
+.species_box.active:after {
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: rgb(0 0 0 / 51%);
+  content: '';
+  right: 0;
+  bottom: 0;
+}
+.species_box.active p {
+  max-width: 90%;
+  font-size: 1.7rem;
 }
 .patrons button {
   margin: 3px 10px;
@@ -754,6 +768,8 @@ span.right::after {
 .print {
   margin-bottom: 40px !important;
 }
+
+
 
 @media screen and (max-width: 1400px) {
   .species_box {

@@ -35,16 +35,17 @@ class Species extends React.Component {
 
     handleData(e, species) {
         // let classes = 'species_box';
-        // let els = document.getElementsByClassName('species_box active');
-        // if(els){
-        //     while (els[0]) {
-        //         els[0].classList.remove('active')
-        //     }
-        // }
-        // console.log(e);
+        let els = document.getElementsByClassName('species_box active');
+        if(els){
+            while (els[0]) {
+                els[0].classList.remove('active')
+            }
+        }
+     
         // // e.target.className = classes.replace('species_box','species_box active');
-
-
+        let el = e.target.parentNode;
+        el.classList.add('active');
+        console.log(el);
         this.props.handleData('species',species)
         this.setState({picked: species});
         this.props.buttonState('clicked');
