@@ -61,7 +61,7 @@ ul {list-style: none;}
   max-width: 240px;
   max-height: 240px;
   position: absolute;
-  left: -29px;
+  right: 0;
   transition: transform 0.2s ease-in;
 }
 .species_box:hover > img {
