@@ -12,6 +12,7 @@ import Fade from '@material-ui/core/Fade';
 import AbilityCells from './AbilityCells';
 import Bonus from './Bonus';
 import FinalValues from './FinalValues';
+import HalfElfBonus from './HalfElfBonus';
 import DataContext from './contexts/DataContext';
 import {data} from './data/data.js';
 
@@ -52,7 +53,13 @@ class Features extends React.Component {
 
     confirmMethod() {
         let state = [...this.context.actualState]
-        const bonus =  [...data.speciesBonus[this.props.species]];
+        let bonus;
+        if(this.props.species === 'Half-Elf') {
+             bonus = [... this.context.half_elf_bonus];
+        } else {
+             bonus =  [...data.speciesBonus[this.props.species]];
+        }
+        
         for(let i=0; i < state.length; i++) {
             if(bonus[i] === parseInt(bonus[i], 10)) state[i] += bonus[i]
         }
@@ -62,16 +69,16 @@ class Features extends React.Component {
 
     
     render() {
-        
+        console.log(this.context);
    
        
         const rollsResults = (
             <>
-                <h4>Young {this.props.profession}, Please assign these numbers for Your abilities: {this.state.numbersToShow.toString()}</h4>
-               
+                <h4 style={{marginBottom: 0}}>Young {this.props.profession}, Please assign these numbers for Your abilities: {this.state.numbersToShow.toString()}</h4>
+                {(this.props.species === 'Half-Elf') && <p className="halfbonus">and pick two bonuses</p>}
                 <Fade in={true}>
                 <TableContainer >
-                    <Table className="abilities" id="abilities"> 
+                    <Table className="abilities" id="abilities" style={{marginTop: 25}}> 
                         <TableHead>
                             <TableRow> 
                                 <TableCell>Strength</TableCell>
@@ -88,7 +95,13 @@ class Features extends React.Component {
                                 <AbilityCells  abilities={this.state.abilities} default={this.state.features} features={this.state.featuresUse} defaultPicked={this.state.defaultPicked}/>  
                             </TableRow>
                             <TableRow>
-                                <Bonus species ={this.props.species}/> 
+                                {(this.props.species !== 'Half-Elf') 
+                                ? 
+                                <Bonus species ={this.props.species}/>
+                                :
+                                <HalfElfBonus abilities={this.state.abilities}/>
+                                }
+                                 
                             </TableRow>
                         </TableBody>
                     </Table>

@@ -23,6 +23,7 @@ class AbilityCells extends React.Component {
     changeValue(index, event) {
         let data = event.target.value;
         let actualState = [...this.context.actualState];
+        console.log(actualState);
         let copy;
         if(this.props.defaultPicked) {
             copy = [...this.context.default];

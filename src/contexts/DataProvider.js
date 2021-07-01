@@ -19,6 +19,7 @@ class DataProvider extends React.Component {
            finalValues: [],
            final: false,
            step_four: false,
+           half_elf_bonus: [],
             person: {
                 name: '',
                 gender: '',

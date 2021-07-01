@@ -768,8 +768,30 @@ span.right::after {
 .print {
   margin-bottom: 40px !important;
 }
+.MuiButton-containedPrimary.active {
+  background: #921515;
+}
+.MuiButton-containedPrimary[disabled] {
+  position: relative;
+  background: black;
+  cursor: not-allowed;
+}
+.MuiButton-containedPrimary[disabled]:hover {
+  background-color: transparent;
+}
+.MuiButton-containedPrimary[disabled]:after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgb(0 0 0 / 48%);
+  z-index: 100;
+}
 
-
+.halfbonus {
+  margin: 0;
+  font-weight: bold;
+}
 
 @media screen and (max-width: 1400px) {
   .species_box {

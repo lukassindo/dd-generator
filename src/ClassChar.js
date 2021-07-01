@@ -190,7 +190,7 @@ class ClassChar extends React.Component {
 
     render() {
         
-        console.log(this.state);
+    
         const profession = this.props.profession;
   
         if (this.props.currentStep !== 5) { 

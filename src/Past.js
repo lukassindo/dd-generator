@@ -77,7 +77,7 @@ class Past extends React.Component {
 
 
     render() {
-        console.log(this.state);
+    
         const past = this.state.past;
         if (this.props.currentStep !== 6) { 
             return (<></>)
