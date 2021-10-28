@@ -24,7 +24,7 @@ class Equip extends React.Component {
         const standard = (
             <>
                 <h3>Your equipment.</h3>
-                <p>and weapons</p>
+                <h4>and weapons</h4>
                 {data.class_char[profession].equip.map((item, index) => {
                     if(typeof item === "string") {
                         return (
